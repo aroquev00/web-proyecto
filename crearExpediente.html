@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Creación de Expediente</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <header>
+    <h1>Creación de Expediente Médico</h1>
+    <hr>
+  </header>
+
+  <nav>
+    <h2>Navegación</h2>
+    <ul>
+      <li>
+        <a href="index.html">Inicio</a>
+      </li>
+      <li>
+        <a href="crearExpediente.html">Creación de Expediente</a>
+      </li>
+    </ul>
+    <hr>
+  </nav>
+
+  <main>
+    <h2>Registro</h2>
+    
+
+    <form method="GET" action="./confRegDatos.html">
+      <fieldset>
+        <legend>Datos personales</legend>
+        
+        <label for="nombre">Nombre</label>
+        <input type="text" id="primerNombre" name="primerNombre" placeholder="Juan" required autofocus autocomplete="on">
+        <br>
+
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" name="apellido" placeholder="Pérez" required autofocus autocomplete="on">
+        <br>
+
+        <label for="sexo">Sexo</label>
+        <select name="sexo" id="sexo">
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+        </select>
+        <br>
+
+        <label for="dob">Fecha de nacimiento</label>
+        <input type="date" id="dob" name="dob">
+        <br>
+
+        <label for="nombre">CURP</label>
+        <input type="text" id="curp" name="curp" placeholder="HEGG560427MVZRRL04" required autocomplete="on">
+        <br>
+
+      </fieldset>
+      <br>
+
+      <fieldset>
+        <legend>Datos de Contacto</legend>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" placeholder = "##########" pattern = "\d{10}"/>
+        <br>
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" placeholder="juan.perez@gmail.com" autocomplete="on" required>
+        <br>
+
+      </fieldset>
+      <br>
+
+      <fieldset>
+        <legend>Datos médicos</legend>
+
+        <label for="nombre">Número de Seguridad Social</label>
+        <input type="text" id="nss" name="nss" placeholder="72795608040" required autocomplete="on">
+        <br>
+
+
+      </fieldset>
+
+      <br>
+
+      <br>
+      <input type="submit" value="Crear Expediente">
+      <input type="reset" value="Borrar datos">
+    </form>
+
+    <hr>
+
+  </main>
+
+  <footer>
+    Algún footer
+  </footer>
+</body>
+
+</html>
