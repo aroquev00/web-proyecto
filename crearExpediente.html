@@ -27,14 +27,15 @@
 
   <main>
     <h2>Registro</h2>
-    
+
 
     <form method="GET" action="./confRegDatos.html">
       <fieldset>
         <legend>Datos personales</legend>
-        
+
         <label for="nombre">Nombre</label>
-        <input type="text" id="primerNombre" name="primerNombre" placeholder="Juan" required autofocus autocomplete="on">
+        <input type="text" id="primerNombre" name="primerNombre" placeholder="Juan" required autofocus
+          autocomplete="on">
         <br>
 
         <label for="apellido">Apellido</label>
@@ -94,13 +95,45 @@
       <fieldset>
         <legend>Datos médicos</legend>
 
-        <label for="nombre">Número de Seguridad Social</label>
+        <label for="nss">Número de Seguridad Social</label>
         <input type="text" id="nss" name="nss" placeholder="72795608040" required autocomplete="on">
         <br>
 
 
-      </fieldset>
 
+      </fieldset>
+      <br>
+
+      <fieldset>
+        <legend>Seguros Médicos</legend>
+
+        <div id="seguros">
+          <div id="seguro1">
+            <div id="tituloSeguro1">Seguro 1</div>
+  
+            <label for="compSeguro1">Compañía aseguradora</label>
+            <input type="text" id="compSeguro1" name="compSeguro1">
+            <br>
+  
+            <label for="polizaSeguro1">Número de póliza</label>
+            <input type="text" id="polizaSeguro1" name="polizaSeguro1">
+            <br>
+  
+            <label for="fechaVencimientoSeguro1">Fecha de vencimiento</label>
+            <input type="date" id="fechaVencimientoSeguro1" name="fechaVencimientoSeguro1">
+            <br> <br>
+          </div>
+
+
+
+        </div>
+
+        
+
+        <br>
+        <button id="btnOtroSeguro">Agregar otro seguro</button>
+
+      </fieldset>
       <br>
 
       <br>
@@ -115,6 +148,8 @@
   <footer>
     Algún footer
   </footer>
+
+  <script src="js/crearExpediente.js"></script>
 </body>
 
 </html>
