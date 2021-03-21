@@ -31,7 +31,7 @@ nav {
     background-color: #1e3b46;
     width: 100%;
     top:0;
-    height: 6%;
+    height: 6vh;
     color: white;
     text-align: right;
 
@@ -72,8 +72,6 @@ main #wrapper {
 
 
 
-
-
 .btn {
    border-radius: 5px;
    padding: 2%;
@@ -95,4 +93,15 @@ main #wrapper {
     border-width: 1px;
     color:#1e3b46;
     border-color: #1e3b46;
+}
+
+ /* Responsive Designed dashboardMedico.html */
+@media only screen and (max-width: 500px) {
+    nav {
+        height: 5%;
+    }
+
+    #btns a {
+        display: block;
+    }
 }
