@@ -52,7 +52,7 @@
         <input type="date" id="dob" name="dob">
         <br>
 
-        <label for="nombre">CURP</label>
+        <label for="curp">CURP</label>
         <input type="text" id="curp" name="curp" placeholder="HEGG560427MVZRRL04" required autocomplete="on">
         <br>
 
@@ -63,11 +63,25 @@
         <legend>Datos de Contacto</legend>
 
         <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" placeholder = "##########" pattern = "\d{10}"/>
+        <input type="tel" id="telefono" name="telefono" placeholder="##########" pattern="\d{10}" required>
         <br>
 
         <label for="email">Correo electrónico</label>
         <input type="email" id="email" name="email" placeholder="juan.perez@gmail.com" autocomplete="on" required>
+        <br>
+
+      </fieldset>
+      <br>
+
+      <fieldset>
+        <legend>Datos Familiares</legend>
+
+        <label for="curpPadre">CURP del padre</label>
+        <input type="text" id="curpPadre" name="curpPadre" placeholder="HEGG560427MVZRRL04" required autocomplete="on">
+        <br>
+
+        <label for="curpMadre">CURP de la madre</label>
+        <input type="text" id="curpMadre" name="curpMadre" placeholder="HEGG560427MVZRRL04" required autocomplete="on">
         <br>
 
       </fieldset>
