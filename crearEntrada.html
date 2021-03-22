@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Creación de Expediente</title>
+  <meta charset="utf-8">
+ 
+  <link rel="stylesheet" href="./css/crearExpediente.css">
+  <!--Fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!--Icons-->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <!--Boostrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+  <!--CSS-->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <header>
+    <!-- <h1>Creación de Expediente Médico</h1> -->
+    <!-- <hr> -->
+  </header>
+
+  <nav>
+    <div id="logo">
+
+    </div>
+    <div id="navOpt">
+      <a><i class="far fa-question-circle"></i> Ayuda</a>
+      <a><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+    </div>
+
+    <!-- <h2>Navegación</h2>
+    <ul>
+      <li>
+        <a href="index.html">Inicio</a>
+      </li>
+      <li>
+        <a href="crearExpediente.html">Creación de Expediente</a>
+      </li>
+    </ul>
+    <hr> -->
+  </nav>
+
+  <main>
+    <h2>Registro de Entrada</h2>
+
+    <div id="wrapper" style="padding-top: 0;">
+        <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#Consulta">Consulta</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#Hospitalizacion">Hospitalización</a>
+            </li>
+        </ul>
+          
+        <!-- Tab panes -->
+        <div class="tab-content">
+        <div class="tab-pane container active" id="Consulta">
+            <form method="GET" action="./confRegDatos.html" class="pt-3 form">
+                <fieldset>
+                
+                        <label for="fecha">Fecha</label>
+                        <input type="date" id="fecha" name="fecha" required> <br>
+                    
+                    
+                        <label for="razon">Razón de Visita</label>
+                        <input type="text" id="razon" name="razon" required> <br>
+                    
+                        <label for="peso">Peso</label>
+                        <input type="number" id="peso" name="peso"> <br>
+                    
+                        <label for="Altura">Altura</label>
+                        <input type="number" id="altura" name="altura"> <br>
+                   
+                        <label for="presion">Presión Arterial</label>
+                        <input type="text" id="presion" name="presion"><br>
+
+                        <label for="comentarios">Comentarios</label> <br>   
+                        <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Escriba aquí cualquier observación." required></textarea>
+                        <br><br>
+                        <div id="input-btns" style="text-align: center;">
+                            <input class="btn" type="submit" value="Guardar Consulta">
+                            <input class="btn" type="reset" value="Borrar Datos">
+                        </div>
+
+                </fieldset>
+            </form>
+        </div>
+        <div class="tab-pane container" id="Hospitalizacion">
+            <form method="GET" action="./confRegDatos.html" class="pt-3 form">
+                <fieldset>
+                
+                    <label for="fechaIn">Fecha de Entrada</label>
+                    <input type="date" id="fechaIn" name="fechaIn" required> <br>
+
+                    <label for="fechaOut">Fecha de Salida</label>
+                    <input type="date" id="fechaOut" name="fechaOut"> <br>
+                
+                
+                    <label for="hospital">Hospital</label>
+                    <input type="text" id="hospital" name="hospital" required> <br>
+                
+                    <label for="peso">Doctor Tratante</label>
+                    <input type="text" id="drTratante" name="drTratante" required> <br>
+
+                    <label for="peso">Doctor&#40;es&#41; Interconsultante&#40;s&#41;</label>
+                    <input type="text" id="drInter" name="drInter"> 
+                    <button  id="btnOtraAlergia">+</button><br>
+                
+                  
+                    <label for="comentarios">Comentarios</label> <br>   
+                    <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Escriba aquí cualquier observación." required></textarea>
+                    <br><br>
+                    <div id="input-btns">
+                        <input class="btn" type="submit" value="Guardar Hospitalización">
+                        <input class="btn" type="reset" value="Borrar Datos">
+                    </div>
+
+            </fieldset>
+            </form>
+        </div>
+        </div>
+    </div>
+
+
+    
+
+  </main>
+
+  <footer>
+    
+  </footer>
+
+  <!--jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/crearExpediente.js"></script>
+</body>
+
+</html>
