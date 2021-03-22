@@ -1,6 +1,5 @@
 
 /* C O L O R E S 
-
 #1e3b46   	(30,59,70) azul fuerte
 #26a892  	(38,168,146) aqua
 #bccfd2     (188,207,210) azul pálido
@@ -103,5 +102,81 @@ main #wrapper {
 
     #btns a {
         display: block;
+    }
+
+    .flex-container{
+        flex-direction: column;
+    }
+}
+
+
+/* vistaPaciente */
+#basicInfo {
+    background:linear-gradient(to left bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+    padding: 2% ;
+    margin: 0 15%;
+    border-radius: 10px;
+    height: fit-content;
+    text-align: left;
+    font-size: large;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.flex-item-info{
+    word-wrap: break-word;
+    padding-right: 2%;
+}
+
+.flex-4{
+    width: 25%;
+}
+
+.flex-5{
+    width: 20%;
+}
+
+.flex-3{
+    width: 33%;
+}
+
+.subtitulo{
+    color:#1e3b46;
+}
+
+.entrada {
+    
+    padding: 2% ;
+    margin: 3% 15%;
+    border-radius: 10px;
+    height: fit-content;
+    text-align: left;
+    font-size: large;
+}
+
+.consulta{
+    background:linear-gradient(to left bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+}
+
+/* Las hospitalizaciones salen en rojito por ser más serias */
+.hospitalizacion{
+    background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(245, 103, 117,0.3));
+}
+
+ /* Responsive Design vistaPaciente.html */
+ @media only screen and (max-width: 900px) {
+    
+    .flex-container{
+        flex-direction: column;
+        
+    }
+
+    .flex-item-info{
+        width:100%;
     }
 }
