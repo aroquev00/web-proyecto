@@ -32,18 +32,20 @@ nav {
     top:0;
     height: 6vh;
     color: white;
-    text-align: right;
-
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 nav #navOpt {
-   padding: 10px 0;   
-   height: 100%;
+    display: flex;
+    width: 200px;
+    justify-content: space-around;;
+ 
 }
 
-nav #navOpt a {
-    margin: 0 1%;
-}
+
 nav #navOpt a:hover{
     cursor: pointer;
     color: #26a892;
@@ -61,17 +63,31 @@ main #wrapper {
     padding: 5%;
     margin: 0 15%;
     text-align: center;
-    height: 90%;
+    height: fit-content;
     border-radius: 10px;
+    min-height: 90%;
+    
 }
 
 main #wrapper {
     font-size: 150%;
 }
 
+.btn-submit{
+    background-color: #1e3b46;
+    color:white;
+    border:1 px solid;
+    border-color: #1e3b46;
+    border-radius: 5px;
+}
 
+.btn-submit:hover{
+    background-color:#bccfd2;
+    color: #1e3b46;
+   
+}
 
-.btn {
+.btnM {
    border-radius: 5px;
    padding: 2%;
    border-style: solid;
@@ -85,7 +101,7 @@ main #wrapper {
    font-size: medium;
 }
 
-.btn:hover {
+.btnM:hover {
     cursor: pointer;
     background-color: #bccfd2;
     border-style: solid;
@@ -94,19 +110,36 @@ main #wrapper {
     border-color: #1e3b46;
 }
 
- /* Responsive Designed dashboardMedico.html */
-@media only screen and (max-width: 500px) {
-    nav {
-        height: 5%;
-    }
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+    color:#26a892;
+    background-color: white;
+    font-size: medium;
+    border:none;
+}
 
-    #btns a {
-        display: block;
-    }
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover {
+    color:#1e3b46;
+    background-color: white;
+    font-size: medium;
+}
 
-    .flex-container{
-        flex-direction: column;
-    }
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+
+    color:white;
+    background-color: #1e3b46;
+}
+
+.form {
+    font-size: large;
+    text-align: left;
+}
+
+#input-btns {
+    text-align: center;
+}
+
+textarea{
+    max-width: 100%;
 }
 
 
@@ -168,9 +201,19 @@ main #wrapper {
     background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(245, 103, 117,0.3));
 }
 
+/*
+-------------------------------------------
+        R E S P O N S I V E N E S S
+-------------------------------------------
+*/
+  
  /* Responsive Design vistaPaciente.html */
  @media only screen and (max-width: 900px) {
-    
+
+    main {
+        padding-top: 10%;
+    }
+
     .flex-container{
         flex-direction: column;
         
@@ -178,5 +221,20 @@ main #wrapper {
 
     .flex-item-info{
         width:100%;
+    }
+}
+
+ /* Responsive Designed dashboardMedico.html */
+ @media only screen and (max-width: 500px) {
+    nav {
+        height: 5%;
+    }
+
+    #btns a {
+        display: block;
+    }
+
+    .flex-container{
+        flex-direction: column;
     }
 }
