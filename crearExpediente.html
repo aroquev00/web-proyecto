@@ -72,6 +72,10 @@
         <input type="text" id="curp" name="curp" placeholder="HEGG560427MVZRRL04" required autocomplete="on">
         <br>
 
+        <label for="nss">Número de Seguridad Social</label>
+        <input type="text" id="nss" name="nss" placeholder="72795608040" required autocomplete="on">
+        <br>
+
       </fieldset>
       <br>
 
@@ -110,8 +114,17 @@
       <fieldset>
         <legend>Datos médicos</legend>
 
-        <label for="nss">Número de Seguridad Social</label>
-        <input type="text" id="nss" name="nss" placeholder="72795608040" required autocomplete="on">
+        <label for="tipoSangre">Tipo de sangre</label>
+        <select name="tipoSangre" id="tipoSangre">
+          <option value="oNegativo">O-</option>
+          <option value="oPositivo">O+</option>
+          <option value="aNegativo">A-</option>
+          <option value="aPositivo">A+</option>
+          <option value="bNegativo">B-</option>
+          <option value="bPositivo">B+</option>
+          <option value="abNegativo">AB-</option>
+          <option value="abPositivo">AB+</option>
+        </select>
         <br>
 
 
@@ -139,11 +152,7 @@
             <br> <br>
           </div>
 
-
-
         </div>
-
-
 
         <br>
         <button id="btnOtroSeguro">Agregar otro seguro</button>
