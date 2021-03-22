@@ -4,16 +4,30 @@
 <head>
   <title>Creación de Expediente</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/main.css">
+  <!--Fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!--Icons-->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 
 <body>
   <header>
-    <h1>Creación de Expediente Médico</h1>
-    <hr>
+    <!-- <h1>Creación de Expediente Médico</h1> -->
+    <!-- <hr> -->
   </header>
 
   <nav>
-    <h2>Navegación</h2>
+    <div id="logo">
+
+    </div>
+    <div id="navOpt">
+      <a><i class="far fa-question-circle"></i> Ayuda</a>
+      <a><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+    </div>
+
+    <!-- <h2>Navegación</h2>
     <ul>
       <li>
         <a href="index.html">Inicio</a>
@@ -22,7 +36,7 @@
         <a href="crearExpediente.html">Creación de Expediente</a>
       </li>
     </ul>
-    <hr>
+    <hr> -->
   </nav>
 
   <main>
@@ -110,15 +124,15 @@
         <div id="seguros">
           <div id="seguro1">
             <div id="tituloSeguro1">Seguro 1</div>
-  
+
             <label for="compSeguro1">Compañía aseguradora</label>
             <input type="text" id="compSeguro1" name="compSeguro1">
             <br>
-  
+
             <label for="polizaSeguro1">Número de póliza</label>
             <input type="text" id="polizaSeguro1" name="polizaSeguro1">
             <br>
-  
+
             <label for="fechaVencimientoSeguro1">Fecha de vencimiento</label>
             <input type="date" id="fechaVencimientoSeguro1" name="fechaVencimientoSeguro1">
             <br> <br>
@@ -128,7 +142,7 @@
 
         </div>
 
-        
+
 
         <br>
         <button id="btnOtroSeguro">Agregar otro seguro</button>
@@ -149,6 +163,9 @@
     Algún footer
   </footer>
 
+  <!--jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/crearExpediente.js"></script>
 </body>
 
