@@ -1,0 +1,182 @@
+
+/* C O L O R E S 
+#1e3b46   	(30,59,70) azul fuerte
+#26a892  	(38,168,146) aqua
+#bccfd2     (188,207,210) azul pálido
+#d8c6b2     (216,198,178) rosita
+#634014     (99,64,20)   cafe
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    position: relative;
+    background-color: #bccfd2;
+    font-family: 'Roboto Condensed', Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    margin:0;
+    height: 100vh;
+}
+
+nav {
+    position: fixed;
+    background-color: #1e3b46;
+    width: 100%;
+    top:0;
+    height: 6vh;
+    color: white;
+    text-align: right;
+
+}
+
+nav #navOpt {
+   padding: 10px 0;   
+   height: 100%;
+}
+
+nav #navOpt a {
+    margin: 0 1%;
+}
+nav #navOpt a:hover{
+    cursor: pointer;
+    color: #26a892;
+}
+
+main {
+    padding-top:5%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+main #wrapper {
+    background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+    padding: 5%;
+    margin: 0 15%;
+    text-align: center;
+    height: 90%;
+    border-radius: 10px;
+}
+
+main #wrapper {
+    font-size: 150%;
+}
+
+
+
+.btn {
+   border-radius: 5px;
+   padding: 2%;
+   border-style: solid;
+   border-width: 1px;
+   border-color: white;
+   background-color: #1e3b46;
+   color: white;
+   font-family: 'Roboto Condensed', Verdana, Geneva, Tahoma, sans-serif;
+   font-weight: lighter;
+   text-decoration: none;
+   font-size: medium;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #bccfd2;
+    border-style: solid;
+    border-width: 1px;
+    color:#1e3b46;
+    border-color: #1e3b46;
+}
+
+ /* Responsive Designed dashboardMedico.html */
+@media only screen and (max-width: 500px) {
+    nav {
+        height: 5%;
+    }
+
+    #btns a {
+        display: block;
+    }
+
+    .flex-container{
+        flex-direction: column;
+    }
+}
+
+
+/* vistaPaciente */
+#basicInfo {
+    background:linear-gradient(to left bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+    padding: 2% ;
+    margin: 0 15%;
+    border-radius: 10px;
+    height: fit-content;
+    text-align: left;
+    font-size: large;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.flex-item-info{
+    word-wrap: break-word;
+    padding-right: 2%;
+}
+
+.flex-4{
+    width: 25%;
+}
+
+.flex-5{
+    width: 20%;
+}
+
+.flex-3{
+    width: 33%;
+}
+
+.subtitulo{
+    color:#1e3b46;
+}
+
+.entrada {
+    
+    padding: 2% ;
+    margin: 3% 15%;
+    border-radius: 10px;
+    height: fit-content;
+    text-align: left;
+    font-size: large;
+}
+
+.consulta{
+    background:linear-gradient(to left bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+}
+
+/* Las hospitalizaciones salen en rojito por ser más serias */
+.hospitalizacion{
+    background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(245, 103, 117,0.3));
+}
+
+ /* Responsive Design vistaPaciente.html */
+ @media only screen and (max-width: 900px) {
+    
+    .flex-container{
+        flex-direction: column;
+        
+    }
+
+    .flex-item-info{
+        width:100%;
+    }
+}
