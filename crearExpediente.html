@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-  <title>Creación de Expediente</title>
+  <title>MediDocs</title>
   <meta charset="utf-8">
   <!--Fonts-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -46,7 +46,8 @@
   </nav>
 
   <main>
-    <h2>Registro de Paciente</h2>
+    <h2>  <i class="fas fa-clipboard"></i>  Creación de Expediente de Paciente</i>
+     </h2>
 
     <div id="wrapper">
       <form method="GET" action="./confRegDatos.html" class="form">
@@ -141,11 +142,11 @@
           <div id="alergias">
             <label for="alergia1">Alergia 1</label>
             <input type="text" id="alergia1" name="alergia1">
+            <button type="button" class="btn-submit" id="btnOtraAlergia">+</button>
             <br>
           </div>
   
-          <br>
-          <button class="btn" id="btnOtraAlergia">Agregar otra alergia</button>
+        
         </fieldset>
   
         <br>
@@ -156,17 +157,18 @@
           <div id="padecimientos">
             <label for="padecimiento1">Padecimiento 1</label>
             <input type="text" id="padecimiento1" name="padecimiento1">
+            <button type="button" class="btn-submit" id="btnOtroPadecimiento">+</button>
             <br>
           </div>
   
           <br>
-          <button class="btn" id="btnOtroPadecimiento">Agregar otro padecimiento</button>
         </fieldset>
   
         <br>
   
         <fieldset>
           <legend>Medicamentos</legend>
+          
   
           <div id="medicamentos">
             <div id="medicamento1">
@@ -183,13 +185,14 @@
               <label for="indicacionesMedicamento1">Indicaciones</label>
               <br>
               <textarea id="indicacionesMedicamento1" name="indicacionesMedicamento1" rows="3" cols="40"></textarea>
+              <button style="display: inline;" type="button" class="btn-submit" id="btnOtroMedicamento">+</button>
               <br> <br>
             </div>
   
           </div>
   
           <br>
-          <button class="btn" id="btnOtroMedicamento">Agregar otro medicamento</button>
+          
   
         </fieldset>
   
@@ -212,21 +215,22 @@
   
               <label for="fechaVencimientoSeguro1">Fecha de vencimiento</label>
               <input type="date" id="fechaVencimientoSeguro1" name="fechaVencimientoSeguro1">
+              <button type="button" class="btn-submit" id="btnOtroSeguro">+</button>
               <br> <br>
             </div>
   
           </div>
   
           <br>
-          <button class="btn" id="btnOtroSeguro">Agregar otro seguro</button>
+          
   
         </fieldset>
         <br>
   
         <br>
         <div id="input-btns">
-          <input class="btn" type="submit" value="Crear Expediente">
-          <input class="btn" type="reset" value="Borrar datos">
+          <input class="btn-submit" type="submit" value="Crear Expediente">
+          <input class="btn-submit" type="reset" value="Borrar datos">
         </div>
       </form>
 

@@ -30,6 +30,7 @@ function agregarOtraAlergia() {
   newFieldAlergia.setAttribute("name", "alergia" + numeroAlergias);
 
   divAlergias.appendChild(newLabelAlergia);
+  divAlergias.append(" ");
   divAlergias.appendChild(newFieldAlergia);
   divAlergias.appendChild(document.createElement("br"));
 }
@@ -48,6 +49,7 @@ function agregarOtroPadecimiento() {
   newFieldPadecimiento.setAttribute("name", "padecimiento" + numeroPadecimientos);
 
   divPadecimientos.appendChild(newLabelPadecimiento);
+  divPadecimientos.append(" ");
   divPadecimientos.appendChild(newFieldPadecimiento);
   divPadecimientos.appendChild(document.createElement("br"));
 }
@@ -91,9 +93,11 @@ function agregarOtroMedicamento() {
 
   newDivMedicamento.appendChild(newDivTitulo);
   newDivMedicamento.appendChild(newLabelNombre);
+  newDivMedicamento.append(" ");
   newDivMedicamento.appendChild(newFieldNombre);
   newDivMedicamento.appendChild(document.createElement("br"));
   newDivMedicamento.appendChild(newLabelDosis);
+  newDivMedicamento.append(" ");
   newDivMedicamento.appendChild(newFieldDosis);
   newDivMedicamento.appendChild(document.createElement("br"));
   newDivMedicamento.appendChild(newLabelIndicaciones);
@@ -143,12 +147,15 @@ function agregarOtroSeguro() {
 
   newDivSeguro.appendChild(newDivTitulo);
   newDivSeguro.appendChild(newLabelComp);
+  newDivSeguro.append(" ");
   newDivSeguro.appendChild(newFieldComp);
   newDivSeguro.appendChild(document.createElement("br"));
   newDivSeguro.appendChild(newLabelPoliza);
+  newDivSeguro.append(" ");
   newDivSeguro.appendChild(newFieldPoliza);
   newDivSeguro.appendChild(document.createElement("br"));
   newDivSeguro.appendChild(newLabelFechaVencimiento);
+  newDivSeguro.append(" ");
   newDivSeguro.appendChild(newFieldFechaVencimiento);
   newDivSeguro.appendChild(document.createElement("br"));
   newDivSeguro.appendChild(document.createElement("br"));
