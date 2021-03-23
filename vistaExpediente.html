@@ -1,0 +1,198 @@
+
+<!-- Deben aparecer primero las entradas nuevas -->
+
+<!DOCTYPE html> 
+<html>
+    <head lang="es">
+        <title>MediDocs</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/main.css">
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <!--Icons-->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+        <!--jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <header>
+
+        </header>
+        <nav>
+            <div id="logo">
+              
+            </div>
+            <div id="navOpt">
+                <a href="dashboardMedico.html"><i class="fas fa-home"></i> Inicio</a>
+                <a><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+            </div>
+        </nav>
+        <main>  
+            <div id="basicInfo">
+                <h1>Información</h1>
+                <div id="infoPersonal">
+                    <h4 class="subtitulo">Información Personal</h4>
+                    <div class="flex-container" >
+                        <div class="flex-item-info flex-4" >
+                            <b>Nombre: </b><span id="nombre">Ana Lucía Sánchez Pérez </span>
+                        </div>
+                        <div class="flex-item-info flex-4" >
+                            <b>Sexo: </b><span id="sexo">Femenino </span>
+                        </div>
+                        <div class="flex-item-info flex-4">
+                            <b>Fecha de Nacimiento: </b><span id="dob">06/12/1999 </span>
+                        </div>
+                        <div class="flex-item-info flex-4">
+                            <b>CURP: </b><span id="curp">432653893268959 </span>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="flex-container">
+                        <div class="flex-item-info flex-4">
+                            <b>Teléfono: </b><span id="curp">81-34-66-89 </span>
+                        </div><div class="flex-item-info flex-4">
+                            <b>Email: </b><span id="mail">AN99@hotmail.com </span>
+                        </div><div class="flex-item-info flex-4">
+                            <b>Domicilio: </b><span id="domicilio">43 Río Viejo, Linda Vista, Monterrey </span>
+                        </div>
+                        <div class="flex-item-info flex-4">
+                            <b>NSS: </b><span id="nss">2653268959 </span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="flex-container">
+                        <div class="flex-item-info flex-4">
+                            <b>Tipo de Sangre: </b><span id="sangre">O negativo</span>
+                        </div><div class="flex-item-info flex-4">
+                            <b>Alergias: </b><span id="alergias">Ninguna </span>
+                        </div><div class="flex-item-info flex-4">
+                            <b>Padecimientos: </b><span id="padecimientos">Ninguno </span>
+                        </div>
+                        <div class="flex-item-info flex-4">
+                            <b>Medicamentos: </b><span id="meds"></span>
+                        </div>
+                    </div>
+                        
+                </div>
+                <hr>
+                <div id="infoContacto">
+                    <div id="infoMadre">
+                        <h4 class="subtitulo">Información de la Madre</h4>
+                        <div class="flex-container">
+                            <div class="flex-item-info flex-3">
+                                <b>Nombre: </b><span id="nombre-mama">Ana Lucía Pérez López </span>
+                            </div>
+                
+                            <div class="flex-item-info flex-3">
+                                <b>Fecha de Nacimiento: </b><span id="dobMama">08/05/1975 </span>
+                            </div>
+                            <div class="flex-item-info flex-3">
+                                <b>CURP: </b><span id="curpMama">432653893268959 </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="infoPadre">
+                        <h4 class="subtitulo">Información del Padre</h4>
+                        <div class="flex-container">
+                            <div class="flex-item-info flex-3">
+                                <b>Nombre: </b><span id="nombrePapa">Ricardo Sánchez Gómez </span>
+                            </div>
+                            <div class="flex-item-info flex-3">
+                                <b>Fecha de Nacimiento: </b><span id="dobPapa">23/12/1974 </span>
+                            </div>
+                            <div class="flex-item-info flex-3">
+                                <b>CURP: </b><span id="curpPapa">432653893268959 </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div id="infoSeguro">
+                    <h4 class="subtitulo">Información del Seguro</h4>
+                    <div class="flex-container">
+                        <div class="flex-item-info flex-3">
+                            <b>Aseguradora: </b><span id="nombre">AXA Seguros </span>
+                        </div>
+                        <div class="flex-item-info flex-3">
+                            <b>Número de Póliza: </b><span id="sexo">178244834636414651 </span>
+                        </div>
+                        <div class="flex-item-info flex-3">
+                            <b>Fecha de Vencimiento: </b><span id="dob">15/11/2021 </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo de Consulta -->
+            <div class="entrada consulta">
+                <h1>Entrada #1</h1>
+                <b>Tipo: </b><span class="tipoEntrada">Consulta </span><br>
+                <div class="flex-container">
+        
+                    <div class="flex-item-info flex-5">
+                        <b>Fecha: </b><span class="fecha">46/11/2020 </span>
+                    </div>
+                    <div class="flex-item-info flex-5">
+                        <b>Razón: </b><span class="razon">Dolor de cabeza </span>
+                    </div>
+                    <div class="flex-item-info flex-5">
+                        <b>Peso: </b><span class="peso">52 kg </span>
+                    </div>
+                    <div class="flex-item-info flex-5">
+                        <b>Altura: </b><span class="altura">165 cm</span>
+                    </div>
+                    <div class="flex-item-info flex-5">
+                        <b>Presión: </b><span class="presion">120/80</span>
+                    </div>
+                    
+                </div>
+                <div class="comentarios">
+                    <p><b>Comentarios:</b> <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque maiores esse cupiditate perspiciatis itaque ducimus praesentium porro molestias quas molestiae commodi, voluptatum totam dolores et dolore sed dolorum cumque. Laborum.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quas. Ullam, modi tenetur ab iste dicta consequatur. Quia distinctio, accusamus officia facilis libero modi obcaecati blanditiis tempora perferendis nesciunt nostrum.</p>
+                </div>
+            </div>
+
+            <!-- Ejemplo de Hospitalización -->
+            <div class="entrada hospitalizacion">
+                <h1>Entrada #2</h1>
+                <div class="flex-container">
+                    <div class="flex-item-info flex-3">
+                        <b>Tipo: </b><span class="tipoEntrada">Hospitalización </span>
+                    </div>
+                    <div class="flex-item-info flex-3">
+                        <b>Fecha de Entrada: </b><span class="fechaIn">06/11/2020 </span>
+                    </div>
+                    <div class="flex-item-info flex-3" >
+                        <b>Fecha de Salida: </b><span class="fechaOut">12/11/2020 </span>
+                    </div>
+                </div>
+                <div class="flex-container">
+                    <div class="flex-item-info flex-3">
+                        <b>Hospital: </b><span class="nombreHospital">Sán José </span>
+                    </div>
+                    <div class="flex-item-info flex-3">
+                        <b>Doctor Tratante: </b><span class="docTratante">Ricardo González</span>
+                    </div>
+                    <div class="flex-item-info flex-3" >
+                        <b>Doctor&#40;es&#41; Interconsultante&#40;s&#41;: </b><span class="docsInter"><br>Miguel Arroyo <br> Claudia Posada</span>
+                    </div>
+                </div>
+                <div class="comentarios">
+                    <p><b>Comentarios:</b> <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque maiores esse cupiditate perspiciatis itaque ducimus praesentium porro molestias quas molestiae commodi, voluptatum totam dolores et dolore sed dolorum cumque. Laborum.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quas. Ullam, modi tenetur ab iste dicta consequatur. Quia distinctio, accusamus officia facilis libero modi obcaecati blanditiis tempora perferendis nesciunt nostrum.</p>
+                </div>
+            </div>
+            
+            <form class="entrada-button" action="./crearEntrada.html" method="GET">
+                <input type="submit" name="submit" value="Agregar entrada" class="btnM" style="height: 40px; width: 150px;">
+            </form>
+            
+        </main>
+        <footer>
+
+        </footer>
+        <script>
+        </script>
+    </body>
+</html>
