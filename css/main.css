@@ -41,14 +41,18 @@ nav {
 nav #navOpt {
     display: flex;
     width: 200px;
-    justify-content: space-around;;
- 
+    justify-content: space-around;
+    color: white;
 }
 
+nav #navOpt a{
+    color: white;
+}
 
 nav #navOpt a:hover{
     cursor: pointer;
     color: #26a892;
+    text-decoration: none;
 }
 
 main {
@@ -142,6 +146,10 @@ textarea{
     max-width: 100%;
 }
 
+legend{
+    color: #1e3b46;
+    font-weight: bold;
+}
 
 /* vistaPaciente */
 #basicInfo {
