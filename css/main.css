@@ -204,6 +204,51 @@ legend{
     background:linear-gradient(to left bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
 }
 
+/* Login Page */
+
+.login-container {
+    width: 40%;
+    height: 40%;
+    margin: 15% auto;
+    background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+    border-radius: 10px;
+}
+
+.form-group {
+    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.input-text {
+    width: 100%;
+    height: 30px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 80%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
 /* Las hospitalizaciones salen en rojito por ser más serias */
 .hospitalizacion{
     background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(245, 103, 117,0.3));

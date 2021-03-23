@@ -1,1 +1,39 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html> 
+<html>
+    <head lang="es">
+        <title>MediDocs</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/main.css">
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
+        <!--Icons-->
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+        <!--jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <div class="login-container">
+            <h2 style="text-align: center; padding-top: 5%;">Inicio de Sesion</h3>
+            <form class="form" action="./dashboardMedico.html" method="GET">
+                <div class="form-group">
+                    <label for="usuario" class="tooltip">Usuario: (No sabes cual es tu usuario?)
+                        <span class="tooltiptext">En caso de ser un paciente inicia sesion con tu CURP. Si eres doctor con tu numero de cédula</span>
+                    </label> 
+                    <input type="text" name="usuario" id="usuario" class="input-text">
+                </div>
+                <div class="form-group">
+                    <label for="contraseña" >Contraseña:</label><br>
+                    <input type="password" name="contraseña" id="contraseña" class="input-text">
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" value="Inicia Sesion" class="btnM">
+                </div>
+            </form>
+        </div>
+    </body>
+    <footer>
+        
+    </footer>
+</html>
