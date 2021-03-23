@@ -212,6 +212,11 @@ legend{
     margin: 15% auto;
     background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
     border-radius: 10px;
+    border: 1px solid;
+    border-color: #1e3b46;
+    -moz-box-shadow:    4px 4px 5px 4px grey;
+    -webkit-box-shadow: 4px 4px 5px 4px grey;
+    box-shadow:         4px 4px 5px 4px grey;
 }
 
 .form-group {
