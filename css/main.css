@@ -47,6 +47,7 @@ nav #navOpt {
 
 nav #navOpt a{
     color: white;
+    text-decoration: none;
 }
 
 nav #navOpt a:hover{
@@ -207,9 +208,9 @@ legend{
 /* Login Page */
 
 .login-container {
-    width: 40%;
-    height: 40%;
-    margin: 15% auto;
+    width: 38%;
+    height: fit-content;
+    margin: 0 auto;
     background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
     border-radius: 10px;
     border: 1px solid;

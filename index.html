@@ -3,7 +3,7 @@
     <head lang="es">
         <title>MediDocs</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="css/main.css">
         <!--Fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
@@ -14,23 +14,25 @@
         <script src="js/main.js"></script>
     </head>
     <body>
-        <div class="login-container">
-            <h2 style="text-align: center; padding-top: 5%;">Inicio de Sesion</h2>
-            <form class="form" action="./dashboardMedico.html" method="GET">
-                <div class="form-group">
-                    <label for="usuario" class="tooltip">Usuario: (No sabes cual es tu usuario?)
-                        <span class="tooltiptext">En caso de ser un paciente inicia sesion con tu CURP. Si eres doctor con tu numero de cédula</span>
-                    </label> 
-                    <input type="text" name="usuario" id="usuario" placeholder="HEGG560427MVZRRL04" pattern="([A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9])|(\d{7})" class="input-text" required>
-                </div>
-                <div class="form-group">
-                    <label for="contraseña" >Contraseña:</label><br>
-                    <input type="password" name="contraseña" id="contraseña" placeholder="*************" class="input-text" required>
-                </div>
-                <div class="form-group">
-                    <input type="submit" name="submit" value="Inicia Sesion" class="btnM">
-                </div>
-            </form>
+        <div style="padding-top: 15%;">
+            <div class="login-container">
+                <h2 style="text-align: center; padding-top: 1%;">Inicio de Sesion</h2>
+                <form class="form" action="./dashboardMedico.html" method="GET">
+                    <div class="form-group">
+                        <label for="usuario" class="tooltip">Usuario: (No sabes cual es tu usuario?)
+                            <span class="tooltiptext">En caso de ser un paciente inicia sesion con tu CURP. Si eres doctor con tu numero de cédula</span>
+                        </label> 
+                        <input type="text" name="usuario" id="usuario" placeholder="HEGG560427MVZRRL04" pattern="([A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9])|(\d{7})" class="input-text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contraseña" >Contraseña:</label><br>
+                        <input type="password" name="contraseña" id="contraseña" placeholder="*************" class="input-text" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" value="Inicia Sesion" class="btnM">
+                    </div>
+                </form>
+            </div>
         </div>
     </body>
     <footer>
