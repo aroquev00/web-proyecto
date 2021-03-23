@@ -254,6 +254,56 @@ legend{
     visibility: visible;
 }
 
+/* Search bar */
+
+.searchbar input[type=text]{
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+  
+.searchbar button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+}
+
+.searchbar button:hover {
+    background: #0b7dda;
+}
+
+main #wrapper-2 {
+    background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+    padding: 2%; /* change padding from original wrapper */
+    margin: 0 15%;
+    text-align: center;
+    height: fit-content;
+    border-radius: 10px;
+    min-height: 90%;
+    
+}
+
+.entrada-button {
+    float: right;
+    padding: 0 15% 5% 0;
+}
+
+/* Clear floats */
+.searchbar::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 /* Las hospitalizaciones salen en rojito por ser más serias */
 .hospitalizacion{
     background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(245, 103, 117,0.3));

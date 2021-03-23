@@ -22,25 +22,18 @@
               
             </div>
             <div id="navOpt">
-                
+                <a href="dashboardMedico.html"><i class="fas fa-home"></i> Inicio</a>
                 <a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
             </div>
         </nav>
         <main>  
-            <div id="wrapper">
-                <div id="jumbo">
-                    <h1>Bienvenido Dr. <span id="nombre">Sánchez</span></h1>
-                </div>
-                <div id="infoDia">
-                    <h4 id="fecha"></h4>
-                </div>
-                <br>
-                <div id="btns">
-                    <a class="btnM" href="crearExpediente.html">Crear Expediente</a>
-                    <a class="btnM" href="searchBar.html">Búsqueda de Paciente</a>
-                </div>
+            <div id="wrapper-2">
+                <h2 style="text-align: center; padding-bottom: 1%;">Buscar un paciente (introduce su CURP)</h2>
+                <form class="searchbar" action="vistaExpediente.html">
+                    <input type="text" placeholder="Buscar.." name="buscar" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
             </div>
-
         </main>
         <footer>
 
