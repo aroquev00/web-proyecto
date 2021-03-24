@@ -1,0 +1,326 @@
+
+/* C O L O R E S 
+#1e3b46   	(30,59,70) azul fuerte
+#26a892  	(38,168,146) aqua
+#bccfd2     (188,207,210) azul pálido
+#d8c6b2     (216,198,178) rosita
+#634014     (99,64,20)   cafe
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    position: relative;
+    background-color: #bccfd2;
+    font-family: 'Roboto Condensed', Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    margin:0;
+    height: 100vh;
+}
+
+nav {
+    position: fixed;
+    background-color: #1e3b46;
+    width: 100%;
+    top:0;
+    height: 6vh;
+    color: white;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+a{
+    align-items: center;
+    margin-left: 100px;
+}
+
+
+nav #navOpt {
+    display: flex;
+    width: 200px;
+    justify-content: space-around;
+    color: white;
+}
+
+nav #navOpt a{
+    color: white;
+}
+
+nav #navOpt a:hover{
+    cursor: pointer;
+    color: #26a892;
+    text-decoration: none;
+}
+
+main {
+    padding-top:5%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+main #wrapper {
+    background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+    padding: 5%;
+    margin: 0 15%;
+    text-align: center;
+    height: fit-content;
+    border-radius: 10px;
+    min-height: 90%;
+    
+}
+
+main #wrapper {
+    font-size: 150%;
+}
+
+.btn-submit{
+    background-color: #1e3b46;
+    color:white;
+    border:1 px solid;
+    border-color: #1e3b46;
+    border-radius: 5px;
+}
+
+.btn-submit:hover{
+    background-color:#bccfd2;
+    color: #1e3b46;
+   
+}
+
+.btnM {
+   border-radius: 5px;
+   padding: 2%;
+   border-style: solid;
+   border-width: 1px;
+   border-color: white;
+   background-color: #1e3b46;
+   color: white;
+   font-family: 'Roboto Condensed', Verdana, Geneva, Tahoma, sans-serif;
+   font-weight: lighter;
+   text-decoration: none;
+   font-size: medium;
+}
+
+.btnM:hover {
+    cursor: pointer;
+    background-color: #bccfd2;
+    border-style: solid;
+    border-width: 1px;
+    color:#1e3b46;
+    border-color: #1e3b46;
+}
+#container{
+    margin-top: 3%;
+    width: 100%;
+    height: 500px;
+}
+#leftbox{
+    float: left;
+    width: 100px;
+    height: max-content;
+    font-size: 20pt;
+    margin-left: 40%;
+}
+#rightbox{
+    float: right;
+    width: 100px;
+    height:max-content;
+    font-size: 20pt;
+    margin-right: 40%;
+
+}
+.boton{
+    padding: 50px,50px;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+    color:#26a892;
+    background-color: white;
+    font-size: medium;
+    border:none;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover {
+    color:#1e3b46;
+    background-color: white;
+    font-size: medium;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+
+    color:white;
+    background-color: #1e3b46;
+}
+
+.form {
+    font-size: large;
+    text-align: left;
+}
+
+#input-btns {
+    text-align: center;
+}
+
+textarea{
+    max-width: 100%;
+}
+
+legend{
+    color: #1e3b46;
+    font-weight: bold;
+}
+
+/* vistaPaciente */
+#basicInfo {
+    background:linear-gradient(to left bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+    padding: 2% ;
+    margin: 0 15%;
+    border-radius: 10px;
+    height: fit-content;
+    text-align: left;
+    font-size: large;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.flex-item-info{
+    word-wrap: break-word;
+    padding-right: 2%;
+}
+
+.flex-4{
+    width: 25%;
+}
+
+.flex-5{
+    width: 20%;
+}
+
+.flex-3{
+    width: 33%;
+}
+
+.subtitulo{
+    color:#1e3b46;
+}
+
+.entrada {
+    
+    padding: 2% ;
+    margin: 3% 15%;
+    border-radius: 10px;
+    height: fit-content;
+    text-align: left;
+    font-size: large;
+}
+
+.consulta{
+    background:linear-gradient(to left bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+}
+
+/* Login Page */
+
+.login-container {
+    width: 40%;
+    height: 40%;
+    margin: 15% auto;
+    background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #1e3b46;
+    -moz-box-shadow:    4px 4px 5px 4px grey;
+    -webkit-box-shadow: 4px 4px 5px 4px grey;
+    box-shadow:         4px 4px 5px 4px grey;
+}
+
+.form-group {
+    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.input-text {
+    width: 100%;
+    height: 30px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 80%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* Las hospitalizaciones salen en rojito por ser más serias */
+.hospitalizacion{
+    background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(245, 103, 117,0.3));
+}
+
+/*
+-------------------------------------------
+        R E S P O N S I V E N E S S
+-------------------------------------------
+*/
+  
+ /* Responsive Design vistaPaciente.html */
+ @media only screen and (max-width: 900px) {
+
+    main {
+        padding-top: 10%;
+    }
+
+    .flex-container{
+        flex-direction: column;
+        
+    }
+
+    .flex-item-info{
+        width:100%;
+    }
+}
+
+ /* Responsive Designed dashboardMedico.html */
+ @media only screen and (max-width: 500px) {
+    nav {
+        height: 5%;
+    }
+
+    #btns a {
+        display: block;
+    }
+
+    .flex-container{
+        flex-direction: column;
+    }
+}
