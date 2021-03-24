@@ -6,39 +6,92 @@
         <link rel="stylesheet" href="css/main.css">
         <!--Fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
         <!--Icons-->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
         <!--jQuery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="js/main.js"></script>
+        <style type="text/css">
+            table{
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            background-color: #26a892;
+
+            }
+            table, th, td{
+                border: 1px solid #cdcdcd;
+            }
+            table th, table td{
+                padding: 5px;
+                text-align: left;
+            }
+        </style>
     </head>
     <body>
         <header>
-
         </header>
         <nav>
             <div id="logo">
-              
             </div>
+                <a href="meds.html">Medicamentos</a>
+                <a href="users.html">Usuarios</a>
             <div id="navOpt">
-                <a href="dashboardMedico.html"><i class="fas fa-home"></i> Inicio</a>
                 <a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
             </div>
         </nav>
-        <main>  
-            <div id="wrapper-2">
+        <main>
+            <div>
+                <h2 style="text-align: center; padding-bottom: 1%;">Buscar un Doctor (introduce su Cedula)</h2>
+                <form class="searchbar" action="vistaExpediente.html">
+                    <input type="text" placeholder="Buscar.." name="buscar" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div>
                 <h2 style="text-align: center; padding-bottom: 1%;">Buscar un paciente (introduce su CURP)</h2>
                 <form class="searchbar" action="vistaExpediente.html">
                     <input type="text" placeholder="Buscar.." name="buscar" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
+            <table>
+                <caption>Notificaciones</caption>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Usuario</th>
+                        <th>Tipo de Usuario</th>
+                        <th>Cedula/CURP</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Ricardo Milos</td>
+                        <td>Paciente</td>
+                        <td>#########</td>
+                        <td>Baja de Usuario</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Juan Penumbra</td>
+                        <td>Doctor</td>
+                        <td>#########</td>
+                        <td>Integridad de Informacion</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Elza Pato</td>
+                        <td>Paciente</td>
+                        <td>#########</td>
+                        <td>Error de entrada</td>
+                    </tr>
+                </tbody>
+            </table>
         </main>
-        <footer>
-
-        </footer>
-        <script>
-        </script>
     </body>
-</html>
+</html>    

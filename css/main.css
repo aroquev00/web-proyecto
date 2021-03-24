@@ -38,6 +38,16 @@ nav {
     flex-wrap: wrap;
 }
 
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #26a892;
+}
+
+
 nav #navOpt {
     display: flex;
     width: 200px;
@@ -47,7 +57,6 @@ nav #navOpt {
 
 nav #navOpt a{
     color: white;
-    text-decoration: none;
 }
 
 nav #navOpt a:hover{
@@ -113,6 +122,32 @@ main #wrapper {
     border-width: 1px;
     color:#1e3b46;
     border-color: #1e3b46;
+}
+#container{
+    margin-top: 3%;
+    width: 100%;
+    height: 500px;
+}
+#leftbox{
+    float: left;
+    width: 100px;
+    height: max-content;
+    font-size: 20pt;
+    margin-left: 40%;
+}
+#rightbox{
+    float: right;
+    width: 100px;
+    height:max-content;
+    font-size: 20pt;
+    margin-right: 40%;
+
+}
+.boton{
+    font-size: 25pt;
+    border-radius: 8px;
+    margin-left: 110px;
+    margin-right: 110px;
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
@@ -256,7 +291,7 @@ legend{
 }
 
 /* Search bar */
-
+	
 .searchbar input[type=text]{
     padding: 10px;
     font-size: 17px;
@@ -304,7 +339,6 @@ main #wrapper-2 {
     clear: both;
     display: table;
 }
-
 /* Las hospitalizaciones salen en rojito por ser más serias */
 .hospitalizacion{
     background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(245, 103, 117,0.3));
