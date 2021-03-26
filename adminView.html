@@ -3,7 +3,7 @@
     <head lang="es">
         <title>MediDocs</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="css/main.css">
         <!--Fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <!--Icons-->
@@ -17,20 +17,16 @@
         <header>
 
         </header>
-        <nav>
+        <nav style="width: 100%;">
             <div id="logo">
-                <a><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+            </div>
+            <div id="navOpt">
+                <a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
             </div>
         </nav>
             <main> 
-                <div id = "container">
-                    <div id="leftbox">
-                        <button type="button" class="btnM" id="meds">Medicamentos</button>
-                    </div>
-                    <div id="rightbox" >
-                        <button type="button" class="btnM" id="pacientes">Pacientes</button>
-                    </div>
-                </div>
+                <input type="button" class="btnM" onclick="location.href='meds.html'" value="Medicamentos" />
+                <input type="button" class="btnM" onclick="location.href='users.html'" value="Usuarios" />
             </main>
         <footer>
 
