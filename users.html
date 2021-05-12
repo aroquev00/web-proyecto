@@ -3,7 +3,6 @@
     <head lang="es">
         <title>MediDocs</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/main.css">
         <!--Fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <!--Icons-->
@@ -12,45 +11,44 @@
         <!--jQuery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="js/main.js"></script>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="css/main.css">
         <style type="text/css">
-            table{
-            width: 60%;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 100px;
-            background-color: #26a892;
-
-            }
-            table, th, td{
-                border: 1px solid #cdcdcd;
-            }
-            table th, table td{
-                padding: 5px;
-                text-align: left;
-            }
+            
         </style>
     </head>
     <body>
         <header>
         </header>
-        <nav>
-            <div id="logo">
-            </div>
+        <nav class="navbar navbar-expand-sm     ">
+
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
                 <a href="meds.html">Medicamentos</a>
-                <a href="users.html">Usuarios</a>
-            <div id="navOpt">
+              </li>
+              <li class="nav-item">
                 <a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
-            </div>
+              </li>
+              
+            </ul>
+          
         </nav>
+        
         <main>
-            <div>
-                <h2 style="text-align: center; padding-bottom: 1%;">Buscar un Doctor (introduce su Cedula)</h2>
+            <div class="px-5 mb-5">
+                <h2 style="text-align: center; padding-bottom: 1%;">Buscar un Doctor (introduce su Cédula)</h2>
                 <form class="searchbar" action="vistaExpediente.html">
                     <input type="text" placeholder="Buscar.." name="buscar" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-            <div>
+            
+            <div class="px-5">
                 <h2 style="text-align: center; padding-bottom: 1%;">Buscar un paciente (introduce su CURP)</h2>
                 <form class="searchbar" action="vistaExpediente.html">
                     <input type="text" placeholder="Buscar.." name="buscar" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]">

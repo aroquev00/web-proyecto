@@ -81,4 +81,21 @@ var setDate = function (){
 
 $(document).ready(function(){
     setDate();
+
+    // meds.html
+    $("#add-row").click(function(){
+        var med = $("#med").val();
+        var pres = $("#pres").val();
+        var markup = "<tr><td>" + med + "</td><td>" + pres + "</td><td>" + "<input type='checkbox' name='record'></td></tr>";
+        $("table tbody").append(markup);
+    });
+    
+    // Find and remove selected table rows
+    $("#delete-row").click(function(){
+        $("table tbody").find('input[name="record"]').each(function(){
+            if($(this).is(":checked")){
+                $(this).parents("tr").remove();
+            }
+        });
+    });
 });

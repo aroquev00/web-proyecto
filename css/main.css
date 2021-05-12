@@ -22,7 +22,7 @@ body {
     font-family: 'Roboto Condensed', Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
     margin:0;
-    height: 100vh;
+    height: 90vh;
 }
 
 nav {
@@ -42,31 +42,18 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
+    margin-right: 15px;
 }
 nav a:hover {
-    color: #26a892;
-}
-
-
-nav #navOpt {
-    display: flex;
-    width: 200px;
-    justify-content: space-around;
-    color: white;
-}
-
-nav #navOpt a{
-    color: white;
-}
-
-nav #navOpt a:hover{
-    cursor: pointer;
     color: #26a892;
     text-decoration: none;
 }
 
+
+
+
 main {
-    padding-top:5%;
+    padding-top: 2%;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -80,7 +67,6 @@ main #wrapper {
     height: fit-content;
     border-radius: 10px;
     min-height: 90%;
-    
 }
 
 main #wrapper {
@@ -164,7 +150,6 @@ main #wrapper {
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
-
     color:white;
     background-color: #1e3b46;
 }
@@ -343,6 +328,34 @@ main #wrapper-2 {
 .hospitalizacion{
     background:linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(245, 103, 117,0.3));
 }
+
+
+table{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    background-color: #26a892;
+
+}
+table, th, td{
+    border: 1px solid #cdcdcd;
+}
+table th, table td{
+    padding: 5px;
+    text-align: left;
+}
+
+
+.formWrapper{
+    display: inline-block;
+}
+
+
+
+
+
+
 
 /*
 -------------------------------------------
