@@ -4,6 +4,7 @@ let numeroDrs = 1;
 $(document).ready(function(){
 
     $("#btnOtroDr").on("click", crearNuevoDr);
+    $("#guardarConsulta").on("click",guardarConsulta);
 
 });
 
@@ -26,5 +27,32 @@ function crearNuevoDr(){
     divDrs.appendChild(document.createElement("br"));
 }
 
+function guardarConsulta(){
+
+    var fecha       = $("#fecha").val();
+	var razon       = $("#razon").val();
+	var peso        = $("#peso").val();
+    var altura      = $("#altura").val();
+    var presion     = $("#presion").val();
+    var comentarios = $("#comentarios").val();
+
+		var ruta = "Action=Consulta&" +"fecha="+fecha+"&razon="+razon+"&peso="+peso+"&altura="+altura+"&presion="+presion+"&comentarios="+comentarios;
+		console.log(ruta);
+		$.ajax({
+			url: '../back/crearEntrada.php',
+			type: 'POST',
+			data: ruta,
+		})
+		.done(function(res){
+			$('#respuestaReg').html(res);
+		})
+		.fail(function(){
+			console.log("error");
+		})
+		.always(function(){
+			console.log("complete");
+		});
+
+}
 
 
