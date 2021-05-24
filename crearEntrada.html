@@ -57,7 +57,7 @@
         <!-- Tab panes -->
         <div class="tab-content">
         <div class="tab-pane container active" id="Consulta">
-            <form method="GET" action="./confRegDatos.html" class="pt-3 form">
+            <form method="GET" class="pt-3 form">
                 <fieldset>
                 
                         <label for="fecha">Fecha</label>
@@ -80,7 +80,7 @@
                         <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Escriba aquí cualquier observación." required></textarea>
                         <br><br>
                         <div id="input-btns" style="text-align: center;">
-                            <input  id="sendInfoC" class="btn-submit" type="submit" value="Guardar Consulta">
+                            <button class="btn-submit" id="guardarConsulta">Guardar Consulta</button>
                             <input class="btn-submit" type="reset" value="Borrar Datos">
                         </div>
 
@@ -88,7 +88,7 @@
             </form>
         </div>
         <div class="tab-pane container" id="Hospitalizacion">
-            <form method="GET" action="./confRegDatos.html" class="pt-3 form">
+            <form method="GET" class="pt-3 form">
                 <fieldset>
                 
                     <label for="fechaIn">Fecha de Entrada</label>
@@ -117,7 +117,7 @@
                     <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Escriba aquí cualquier observación." required></textarea>
                     <br><br>
                     <div id="input-btns">
-                        <input id="sendInfoH" class="btn-submit" type="submit" value="Guardar Hospitalización">
+                        <button class="btn-submit" id="guardarHospitalizacion">Guardar Hospitalizacion</button>
                         <input class="btn-submit" type="reset" value="Borrar Datos">
                     </div>
 

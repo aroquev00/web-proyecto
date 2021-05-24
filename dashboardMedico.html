@@ -34,7 +34,7 @@
         <main>  
             <div id="wrapper">
                 <div id="jumbo">
-                    <h1>Bienvenido Dr. <span id="nombre">Sánchez</span></h1>
+                    <h1>Bienvenido <span id="nombre"></span></h1>
                 </div>
                 <div id="infoDia">
                     <h4 id="fecha"></h4>
@@ -51,6 +51,26 @@
 
         </footer>
         <script>
+             $(document).ready(function(){
+
+                    $.ajax({
+                        url: 'back/dashboard.php',
+                        type: 'GET', 
+                    })
+                    .done(function(res){
+                        $('#nombre').html(res);
+                    
+                    })
+                    .fail(function(){
+                        console.log("error");
+                    })
+                    .always(function(){
+                        console.log("complete");
+                    });
+
+
+            });
+
         </script>
     </body>
 </html>

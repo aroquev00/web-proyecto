@@ -1,0 +1,44 @@
+Personas(nombre, sexo, DOB, CURP);
+	PK(CURP)
+
+Medicos(cédula, personaID)
+	PK(cédula)
+	FK(personaID) references Personas
+
+Pacientes(NSS, correo, domicilio, telefono, tipoSangre, personaID, madre, padre)
+	PK(NSS)
+	FK(madre)references Pacientes
+	FK(padre)references Pacientes
+
+ConsultasMedicoPaciente(medicoID, pacienteID, altura, peso, presión, razon, comentarios, fecha)
+	PK(cedula, nss, fecha)
+	FK(medicoID) references Medicos
+	FK(pacienteID	) references Pacientes
+
+SegurosMédicos(id, compañía, #poliza, fechaVen, pacienteID)
+	PK(id)
+	FK(pacienteID) references Pacientes
+
+Padecimientos(pacienteID, padecimiento)
+	PK(pacienteID, padecimiento)
+	FK(pacienteID) references Pacientes
+
+Alergias(pacienteID, alergia)
+	PK(pacienteID, alergia)
+	FK(pacienteID) references Pacientes
+
+Hospital(id, nombre)
+	PK(id)
+
+Internados(hospitalID, pacienteID, fechaIn, fechaOut, razon, drTratante, comentarios)
+	PK(hospitalID, pacienteID, fechaIn)
+	FK(pacienteID) references Pacientes
+	FK(hospitalID) references Hospital
+
+DoctoresInterconsultantes(internadoID, nombre)
+	PK(internadoID, nombre)
+	FK(internadoID) references Internados
+
+Meds(id, nombre, dosis, indicaciones, pacienteID)
+	PK(id)
+	FK(pacienteID) references Pacientes

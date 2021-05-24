@@ -16,26 +16,85 @@
     <body>
         <div style="padding-top: 15%;">
             <div class="login-container">
-                <h2 style="text-align: center; padding-top: 1%;">Inicio de Sesion</h2>
-                <form class="form" action="./dashboardMedico.html" method="GET">
+                <h2 style="text-align: center; padding-top: 1%;">Inicio de Sesión</h2>
+                <form class="form">
                     <div class="form-group">
                         <label for="usuario" class="tooltip">Usuario: (No sabes cual es tu usuario?)
                             <span class="tooltiptext">En caso de ser un paciente inicia sesion con tu CURP. Si eres doctor con tu numero de cédula</span>
                         </label> 
-                        <input type="text" name="usuario" id="usuario" placeholder="HEGG560427MVZRRL04" pattern="([A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9])|(\d{7})" class="input-text" required>
+                        <input type="text" name="usuario" id="usuario" placeholder="HEGG560427MVZRRL04" pattern="([A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9])|([0-9]{7})|([0-9]{8})" class="input-text" required>
                     </div>
                     <div class="form-group">
                         <label for="contraseña" >Contraseña:</label><br>
                         <input type="password" name="contraseña" id="contraseña" placeholder="*************" class="input-text" required>
                     </div>
-                    <div class="form-group">
-                        <input type="submit" name="submit" value="Inicia Sesion" class="btnM">
-                    </div>
+                    
                 </form>
+                <div class="form-group">
+                    <button id="loginBtn" class="btnM">Iniciar Sesión</button>
+                </div>
+                <div class="form-group" id="respuesta">
+                            
+                </div>
             </div>
         </div>
     </body>
     <footer>
         
     </footer>
+    <script>
+        $(document).ready(function(){
+
+            $("#loginBtn").click(function(){
+
+                var usuario = $("#usuario").val();
+                var contra = $("#contraseña").val();
+                
+                if(usuario.length == 7 || usuario.length == 8){
+                    var tipo = "Dr";
+                }else if(usuario.length == 18){
+                    var tipo = "Paciente";
+                }
+                
+                var ruta="Type="+tipo+"&usuario="+usuario+"&contra="+contra;
+                console.log(ruta);
+                
+                $.ajax({
+                    url: 'back/login.php',
+                    type: 'GET',
+                    data: ruta,
+                })
+                .done(function(res){
+                   
+
+                    if(res == "fail" ){
+                        $('#respuesta').html("Datos incorrectos. Vuelva a intentar.");
+                    }
+
+                    if(res == "success" && tipo == "Dr"){
+                        window.location.href = "dashboardMedico.html";
+                    }
+                    if(res == "success" && tipo == "Paciente"){
+                        $('#respuesta').html("entro");
+                        window.location.href = "vistaPaciente.html";
+                    }
+
+                })
+                .fail(function(){
+                    console.log("error");
+                })
+                .always(function(){
+                    console.log("complete");
+                });
+
+
+            });
+            
+
+        });
+
+    
+
+    </script>
+
 </html>
