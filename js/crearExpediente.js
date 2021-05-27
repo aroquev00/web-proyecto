@@ -1,8 +1,8 @@
 
-let numeroAlergias = 1;
-let numeroPadecimientos = 1;
-let numeroMedicamentos = 1;
-let numeroSeguros = 1;
+let numeroAlergias = 0;
+let numeroPadecimientos = 0;
+let numeroMedicamentos = 0;
+let numeroSeguros = 0;
 
 const btnOtraAlergia = document.getElementById("btnOtraAlergia");
 btnOtraAlergia.addEventListener("click", agregarOtraAlergia);
@@ -37,7 +37,7 @@ function agregarOtraAlergia() {
 
 function agregarOtroPadecimiento() {
   numeroPadecimientos++;
-
+  
   const divPadecimientos = document.getElementById("padecimientos");
 
   const newLabelPadecimiento = document.createElement("label");
