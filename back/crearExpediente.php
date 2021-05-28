@@ -26,20 +26,29 @@ if (isset($_POST)) {
         fn ($key) => str_contains($key, 'alergia'),
         ARRAY_FILTER_USE_KEY
     );
-
-    echo print_r($alergias);
-    if (isset($_POST['alergia2'])) {
-        echo "IN";
-    } else {
-        echo "OUT";
-    }
-
+    // note: may be empty...
 
     // Padecimientos
+    $padecimientos = array_filter(
+        $_POST,
+        fn ($key) => str_contains($key, 'padecimiento'),
+        ARRAY_FILTER_USE_KEY
+    );
+    // note: may be empty...
 
     // Medicamentos
+    $medicamentos = array_filter(
+        $_POST,
+        fn ($key) => str_contains($key, 'medicamento'),
+        ARRAY_FILTER_USE_KEY
+    );
 
     // Seguros Médicos
+    $seguros = array_filter(
+        $_POST,
+        fn ($key) => str_contains($key, 'seguro'),
+        ARRAY_FILTER_USE_KEY
+    );
 
     //echo print_r($_POST);
 
