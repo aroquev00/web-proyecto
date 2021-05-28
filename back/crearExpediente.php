@@ -1,5 +1,20 @@
 <?php
+
+class Medicamento {
+    public $nombreMedicamento;
+    public $dosis;
+    public $indicaciones;
+}
+
+class Seguro {
+    public $compania;
+    public $numeroPoliza;
+    public $fechaVencimiento;
+}
+
 if (isset($_POST)) {
+    include('db/conexionDB.php');
+
     // Datos personales
     $primerNombre = $_POST['primerNombre'];
     $apellido = $_POST['apellido'];
@@ -20,28 +35,68 @@ if (isset($_POST)) {
     // Datos Médicos
     $tipoSangre = $_POST['tipoSangre'];
 
+    echo print_r($_POST);
+    echo "<br>";
+
     // Alergias
     $alergias = array_filter(
         $_POST,
-        fn ($key) => str_contains($key, 'alergia'),
-        ARRAY_FILTER_USE_KEY
+        fn ($value, $key) => str_contains($key, 'alergia') && $value != '',
+        ARRAY_FILTER_USE_BOTH
     );
-    // note: may be empty...
+    //echo print_r($alergias);
 
     // Padecimientos
     $padecimientos = array_filter(
         $_POST,
-        fn ($key) => str_contains($key, 'padecimiento'),
-        ARRAY_FILTER_USE_KEY
+        fn ($value, $key) => str_contains($key, 'padecimiento') && $value != '',
+        ARRAY_FILTER_USE_BOTH
     );
-    // note: may be empty...
+    //echo print_r($padecimientos);
 
     // Medicamentos
-    $medicamentos = array_filter(
+    $numMedicamentos = count(array_filter(
         $_POST,
-        fn ($key) => str_contains($key, 'medicamento'),
+        fn ($key) => str_contains($key, 'nombreMedicamento'),
         ARRAY_FILTER_USE_KEY
-    );
+    ));
+
+    $medicamentos = [];
+    for ($i = 1; $i <= $numMedicamentos; $i++) {
+        $nombreMedicamento = $_POST["nombreMedicamento$i"];
+        if ($nombreMedicamento == '') {
+            echo "Nombre de medicamento vacío!";
+            return;
+        }
+
+        $dosis = $_POST["dosisMedicamento$i"];
+        if ($dosis == '') {
+            echo "Dosis de medicamento vacía!";
+            return;
+        }
+
+        $indicaciones = $_POST["indicacionesMedicamento$i"];
+        if ($indicaciones == '') {
+            echo "Indicaciones de medicamento vacías!";
+            return;
+        }
+
+        $medicamento = new Medicamento();
+        $medicamento->nombreMedicamento = $nombreMedicamento;
+        $medicamento->dosis = $dosis;
+        $medicamento->indicaciones = $indicaciones;
+
+        array_push($medicamentos, $medicamento);
+    }
+    //echo print_r($medicamentos);
+
+
+    foreach ($medicamentos as $medicamento) {
+        if ($medicamento == '') {
+            echo "ERROR, campo de medicamento vacío";
+            return;
+        }
+    }
 
     // Seguros Médicos
     $seguros = array_filter(
@@ -51,6 +106,36 @@ if (isset($_POST)) {
     );
 
     //echo print_r($_POST);
+
+    // Primero checar si el paciente ya existe
+    $consultaPacienteExiste = "SELECT personaID FROM Pacientes p WHERE p.personaID = '$curp'";
+    $resultadoPacienteExiste = hacerQuery($consultaPacienteExiste);
+    if ($resultadoPacienteExiste->num_rows != 0) {
+        echo "ERROR, paciente ya registrado";
+        return;
+    }
+
+
+
+
+    // Paciente no existe, checar si ya existe en tabla de personas
+    $consultaPersonaExiste = "SELECT * FROM Personas p WHERE p.curp = '$curp'";
+    $resultadoPersonaExiste = hacerQuery($consultaPersonaExiste);
+    if ($resultadoPersonaExiste->num_rows == 0) {
+        echo "Persona no existe";
+        // Registrar a la persona
+    } else {
+        echo "Persona sí existe";
+        // Tomar sus datos existentes
+        $personaRow = mysqli_fetch_array($resultadoPersonaExiste);
+        $primerNombre = $personaRow['primerNombre'];
+        $apellido = $personaRow['apellido'];
+        $sexo = $personaRow['sexo'];
+        $dob = $personaRow['dob'];
+        $curp = $personaRow['curp'];
+        $nss = $personaRow['nss'];
+        echo $primerNombre;
+    }
 
     $consulta = "INSERT INTO persona VALUES('$primerNombre', $curpPadre)";
     echo $consulta;
