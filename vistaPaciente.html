@@ -44,40 +44,40 @@
                     <h4 class="subtitulo">Información Personal</h4>
                     <div class="flex-container" >
                         <div class="flex-item-info flex-4" >
-                            <b>Nombre: </b><span id="nombre">Ana Lucía Sánchez Pérez </span>
+                            <b>Nombre: </b><span id="nombre"> </span>
                         </div>
                         <div class="flex-item-info flex-4" >
-                            <b>Sexo: </b><span id="sexo">Femenino </span>
+                            <b>Sexo: </b><span id="sexo"> </span>
                         </div>
                         <div class="flex-item-info flex-4">
-                            <b>Fecha de Nacimiento: </b><span id="dob">06/12/1999 </span>
+                            <b>Fecha de Nacimiento: </b><span id="dob">  </span>
                         </div>
                         <div class="flex-item-info flex-4">
-                            <b>CURP: </b><span id="curp">432653893268959 </span>
+                            <b>CURP: </b><span id="curp"> </span>
                         </div>
                         <br>
                     </div>
                     <br>
                     <div class="flex-container">
                         <div class="flex-item-info flex-4">
-                            <b>Teléfono: </b><span id="curp">81-34-66-89 </span>
+                            <b>Teléfono: </b><span id="telefono"> </span>
                         </div><div class="flex-item-info flex-4">
-                            <b>Email: </b><span id="mail">AN99@hotmail.com </span>
+                            <b>Email: </b><span id="correo"> </span>
                         </div><div class="flex-item-info flex-4">
-                            <b>Domicilio: </b><span id="domicilio">43 Río Viejo, Linda Vista, Monterrey </span>
+                            <b>Domicilio: </b><span id="domicilio"> </span>
                         </div>
                         <div class="flex-item-info flex-4">
-                            <b>NSS: </b><span id="nss">2653268959 </span>
+                            <b>NSS: </b><span id="nss"> </span>
                         </div>
                     </div>
                     <br>
                     <div class="flex-container">
                         <div class="flex-item-info flex-4">
-                            <b>Tipo de Sangre: </b><span id="sangre">O negativo</span>
+                            <b>Tipo de Sangre: </b><span id="sangre"></span>
                         </div><div class="flex-item-info flex-4">
-                            <b>Alergias: </b><span id="alergias">Ninguna </span>
+                            <b>Alergias: </b><span id="alergias"> </span>
                         </div><div class="flex-item-info flex-4">
-                            <b>Padecimientos: </b><span id="padecimientos">Ninguno </span>
+                            <b>Padecimientos: </b><span id="padecimientos"> </span>
                         </div>
                         <div class="flex-item-info flex-4">
                             <b>Medicamentos: </b><span id="meds"></span>
@@ -202,6 +202,30 @@
 
         </footer>
         <script>
+            $.ajax({
+                url: 'back/getPatientInfo.php',
+                type: 'GET',
+                dataType: 'JSON',
+            })
+            .done(function(res){
+                if (res == "fail")
+                    console.log("Error in query (back/getPatientInfo.php)");
+                else {
+                    var patientInfo = res;
+                    document.getElementById("nombre").innerHTML = patientInfo[0]["nombre"];
+                    document.getElementById("sexo").innerHTML = patientInfo[0]["sexo"];
+                    document.getElementById("dob").innerHTML = patientInfo[0]["dob"];
+                    document.getElementById("curp").innerHTML = patientInfo[0]["curp"];
+                    document.getElementById("telefono").innerHTML = patientInfo[0]["telefono"];
+                    document.getElementById("correo").innerHTML = patientInfo[0]["correo"];
+                    document.getElementById("domicilio").innerHTML = patientInfo[0]["domicilio"];
+                    document.getElementById("nss").innerHTML = patientInfo[0]["nss"];
+                    document.getElementById("sangre").innerHTML = patientInfo[0]["sangre"];
+                }
+            })
+            .fail(function(){
+                console.log("Error in ajax function (vistaPaciente.html)");
+            });
         </script>
     </body>
 </html>
