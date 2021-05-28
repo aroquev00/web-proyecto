@@ -90,22 +90,42 @@ if (isset($_POST)) {
     }
     //echo print_r($medicamentos);
 
-
-    foreach ($medicamentos as $medicamento) {
-        if ($medicamento == '') {
-            echo "ERROR, campo de medicamento vacío";
-            return;
-        }
-    }
-
     // Seguros Médicos
-    $seguros = array_filter(
+    $numSeguros = count(array_filter(
         $_POST,
         fn ($key) => str_contains($key, 'seguro'),
         ARRAY_FILTER_USE_KEY
-    );
+    ));
 
-    //echo print_r($_POST);
+    $seguros = [];
+    for ($i = 1; $i <= $numSeguros; $i++) {
+        $compania = $_POST["compSeguro$i"];
+        if ($compania == '') {
+            echo "Compañía de seguro vacío!";
+            return;
+        }
+
+        $numeroPoliza = $_POST["polizaSeguro$i"];
+        if ($numeroPoliza == '') {
+            echo "Póliza de seguro vacía!";
+            return;
+        }
+
+        $fechaVencimiento = $_POST["fechaVencimientoSeguro$i"];
+        if ($fechaVencimiento == '') {
+            echo "Fecha de vencimiento de seguro vacía!";
+            return;
+        }
+
+        $seguro = new Seguro();
+        $seguro->compania = $compania;
+        $seguro->numeroPoliza = $numeroPoliza;
+        $seguro->fechaVencimiento = $fechaVencimiento;
+
+        array_push($seguros, $seguro);
+    }
+    //echo print_r($seguros);
+
 
     // Primero checar si el paciente ya existe
     $consultaPacienteExiste = "SELECT personaID FROM Pacientes p WHERE p.personaID = '$curp'";
