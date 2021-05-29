@@ -216,7 +216,7 @@ if (isset($_POST)) {
 
     // Registrar medicamentos
     foreach ($medicamentos as $medicamento) {
-        $consultaRegistrarMedicamento = "INSERT INTO Meds VALUES ('$nss', '$padecimiento')";
+        $consultaRegistrarMedicamento = "INSERT INTO Meds VALUES ('$medicamento->nombreMedicamento', '$medicamento->dosis', '$medicamento->indicaciones', '$nss')";
         $resultadoRegistrarMedicamento = hacerQuery($consultaRegistrarMedicamento);
 
         if ($resultadoRegistrarPadecimiento == false) {
@@ -225,5 +225,17 @@ if (isset($_POST)) {
         }
     }
 
-    echo "Bye";
+    // Registrar seguros
+    foreach ($seguros as $seguro) {
+        $consultaRegistrarSeguro = "INSERT INTO SegurosMedicos VALUES ('$seguro->compania', '$seguro->numeroPoliza', '$seguro->fechaVencimiento', '$nss')";
+        $resultadoRegistrarSeguro = hacerQuery($consultaRegistrarSeguro);
+
+        if ($resultadoRegistrarSeguro == false) {
+            echo "Error al registrar seguro";
+            return;
+        }
+    }
+
+    echo "Success";
+    return;
 }
