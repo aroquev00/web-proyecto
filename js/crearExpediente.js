@@ -162,3 +162,58 @@ function agregarOtroSeguro() {
 
   divSeguros.appendChild(newDivSeguro)
 }
+
+
+$(document).ready(function() {
+  $("form").submit(function(event) {
+    
+    var formData = {
+      primerNombre: $("#primerNombre").val(),
+      apellido: $("#apellido").val(),
+      sexo: $("#sexo").val(),
+      dob: $("#dob").val(),
+      curp: $("#curp").val(),
+      nss: $("#nss").val(),
+      telefono: $("#telefono").val(),
+      email: $("#email").val(),
+      domicilio: $("#domicilio").val(),
+      curpPadre: $("#curpPadre").val(),
+      curpMadre: $("#curpMadre").val(),
+      tipoSangre: $("#tipoSangre").val(),
+    }
+
+    for (let i = 1; i <= numeroAlergias; i++) {
+      formData[`alergia${i}`]= $(`#alergia${i}`);
+    }
+
+    for (let i = 1; i <= numeroPadecimientos; i++) {
+      formData[`padecimiento${i}`]= $(`#padecimiento${i}`);
+    }
+
+    for (let i = 1; i <= numeroMedicamentos; i++) {
+      formData[`nombreMedicamento${i}`]= $(`#nombreMedicamento${i}`);
+      formData[`dosisMedicamento${i}`]= $(`#dosisMedicamento${i}`);
+      formData[`indicacionesMedicamento${i}`]= $(`#indicacionesMedicamento${i}`);
+    }
+
+    for (let i = 1; i <= numeroSeguros; i++) {
+      formData[`compSeguro${i}`]= $(`#compSeguro${i}`);
+      formData[`polizaSeguro${i}`]= $(`#polizaSeguro${i}`);
+      formData[`fechaVencimientoSeguro${i}`]= $(`#fechaVencimientoSeguro${i}`);
+    }
+    console.log("Xd");
+    console.log(formData);
+
+    $.ajax({
+      type: "POST",
+      url: "back/crearExpediente.php",
+      data: formData,
+      dataType: "json",
+      encode: true,
+    }).done(function(data) {
+      console.log(data);
+    });
+
+    event.preventDefault();
+  });
+});
