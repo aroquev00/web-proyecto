@@ -21,18 +21,34 @@ function agregarOtraAlergia() {
 
   const divAlergias = document.getElementById("alergias");
 
+  const newDivAlergia = document.createElement('div');
+  newDivAlergia.id = 'divAlergia' + numeroAlergias;
+
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add('btn-submit');
+  deleteButton.innerText = '-';
+  deleteButton.onclick = () => {
+    newDivAlergia.remove();
+  }
+
+  const labelAlergiaText = document.createElement('span');
+  labelAlergiaText.innerText = "Alergia " + numeroAlergias;
+
   const newLabelAlergia = document.createElement("label");
   newLabelAlergia.setAttribute("for", "alergia" + numeroAlergias);
-  newLabelAlergia.innerText = "Alergia " + numeroAlergias;
+  newLabelAlergia.appendChild(deleteButton);
+  newLabelAlergia.appendChild(labelAlergiaText);
   const newFieldAlergia = document.createElement("input");
   newFieldAlergia.setAttribute("type", "text");
   newFieldAlergia.id = "alergia" + numeroAlergias;
   newFieldAlergia.setAttribute("name", "alergia" + numeroAlergias);
 
-  divAlergias.appendChild(newLabelAlergia);
-  divAlergias.append(" ");
-  divAlergias.appendChild(newFieldAlergia);
-  divAlergias.appendChild(document.createElement("br"));
+  newDivAlergia.appendChild(newLabelAlergia);
+  newDivAlergia.append(" ");
+  newDivAlergia.appendChild(newFieldAlergia);
+  newDivAlergia.appendChild(document.createElement("br"));
+
+  divAlergias.appendChild(newDivAlergia);
 }
 
 function agregarOtroPadecimiento() {
@@ -62,9 +78,21 @@ function agregarOtroMedicamento() {
   const newDivMedicamento = document.createElement("div")
   newDivMedicamento.id = "medicamento" + numeroMedicamentos;
 
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add('btn-submit');
+  deleteButton.innerText = '-';
+  deleteButton.onclick = () => {
+    newDivMedicamento.remove();
+  }
+
+  const divTitle = document.createElement('span');
+  divTitle.innerText = "Medicamento " + numeroMedicamentos;
+
   const newDivTitulo = document.createElement("div");
   newDivTitulo.id = "tituloMedicamento" + numeroMedicamentos;
-  newDivTitulo.innerText = "Medicamento " + numeroMedicamentos;
+  newDivTitulo.appendChild(deleteButton);  
+  newDivTitulo.appendChild(divTitle);
+
 
   const newLabelNombre = document.createElement("label");
   newLabelNombre.setAttribute("for", "nombreMedicamento" + numeroMedicamentos);
@@ -165,6 +193,8 @@ function agregarOtroSeguro() {
 
 
 $(document).ready(function() {
+  document.getElementById('result').style.display = "none";
+
   $("#erase").click(function() {
     resetErrorMessages();
   });
@@ -229,11 +259,17 @@ $(document).ready(function() {
         errorMessageSpan.scrollIntoView();
       } else {
         // MARK SUCCESS
+        document.getElementById('form').style.display = 'none';
+        document.getElementById('result').style.display = "block";
       }
 
     });
 
    event.preventDefault();
+  });
+
+  $('#otroExpediente').click(function() {
+    location.reload();
   });
 });
 
