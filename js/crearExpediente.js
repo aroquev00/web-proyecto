@@ -56,18 +56,34 @@ function agregarOtroPadecimiento() {
   
   const divPadecimientos = document.getElementById("padecimientos");
 
+  const newDivPadecimiento = document.createElement('div');
+  newDivPadecimiento.id = 'divPadecimiento' + numeroPadecimientos;
+
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add('btn-submit');
+  deleteButton.innerText = '-';
+  deleteButton.onclick = () => {
+    newDivPadecimiento.remove();
+  }
+
+  const labelPadecimientoText = document.createElement('span');
+  labelPadecimientoText.innerText = "Padecimiento " + numeroPadecimientos;
+
   const newLabelPadecimiento = document.createElement("label");
   newLabelPadecimiento.setAttribute("for", "padecimiento" + numeroPadecimientos);
-  newLabelPadecimiento.innerText = "Padecimiento " + numeroPadecimientos;
+  newLabelPadecimiento.appendChild(deleteButton);
+  newLabelPadecimiento.appendChild(labelPadecimientoText);
   const newFieldPadecimiento = document.createElement("input");
   newFieldPadecimiento.setAttribute("type", "text");
   newFieldPadecimiento.id = "padecimiento" + numeroPadecimientos;
   newFieldPadecimiento.setAttribute("name", "padecimiento" + numeroPadecimientos);
 
-  divPadecimientos.appendChild(newLabelPadecimiento);
-  divPadecimientos.append(" ");
-  divPadecimientos.appendChild(newFieldPadecimiento);
-  divPadecimientos.appendChild(document.createElement("br"));
+  newDivPadecimiento.appendChild(newLabelPadecimiento);
+  newDivPadecimiento.append(" ");
+  newDivPadecimiento.appendChild(newFieldPadecimiento);
+  newDivPadecimiento.appendChild(document.createElement("br"));
+
+  divPadecimientos.appendChild(newDivPadecimiento);
 }
 
 function agregarOtroMedicamento() {
@@ -145,9 +161,20 @@ function agregarOtroSeguro() {
   const newDivSeguro = document.createElement("div")
   newDivSeguro.id = "seguro" + numeroSeguros;
 
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add('btn-submit');
+  deleteButton.innerText = '-';
+  deleteButton.onclick = () => {
+    newDivSeguro.remove();
+  }
+
+  const divTitle = document.createElement('span');
+  divTitle.innerText = "Seguro " + numeroSeguros;
+
   const newDivTitulo = document.createElement("div");
   newDivTitulo.id = "tituloSeguro" + numeroSeguros;
-  newDivTitulo.innerText = "Seguro " + numeroSeguros;
+  newDivTitulo.appendChild(deleteButton);
+  newDivTitulo.appendChild(divTitle);
 
   const newLabelComp = document.createElement("label");
   newLabelComp.setAttribute("for", "compSeguro" + numeroSeguros);
