@@ -65,8 +65,8 @@ if (isset($_POST)) {
     // Datos Médicos
     $tipoSangre = getTipoSangre($_POST['tipoSangre']);
 
-    echo print_r($_POST);
-    echo "<br>";
+    // echo print_r($_POST);
+    // echo "<br>";
 
     // Alergias
     $alergias = array_filter(
@@ -74,6 +74,13 @@ if (isset($_POST)) {
         fn ($value, $key) => str_contains($key, 'alergia') && $value != '',
         ARRAY_FILTER_USE_BOTH
     );
+
+    foreach ($alergias as $key => $value) {
+        if ($value == '') {
+            returnError($key, "Campo de alergia vacío");
+            return;
+        }
+    }
     //echo print_r($alergias);
 
     // Padecimientos
@@ -82,6 +89,13 @@ if (isset($_POST)) {
         fn ($value, $key) => str_contains($key, 'padecimiento') && $value != '',
         ARRAY_FILTER_USE_BOTH
     );
+
+    foreach ($padecimientos as $key => $value) {
+        if ($value == '') {
+            returnError($key, "Campo de padecimiento vacío");
+            return;
+        }
+    }
     //echo print_r($padecimientos);
 
     // Medicamentos
@@ -156,93 +170,93 @@ if (isset($_POST)) {
     }
     //echo print_r($seguros);
 
-
+// TODO
     // Primero checar si el paciente ya existe
-    $consultaPacienteExiste = "SELECT personaID FROM Pacientes p WHERE p.personaID = '$curp'";
-    $resultadoPacienteExiste = hacerQuery($consultaPacienteExiste);
-    if ($resultadoPacienteExiste->num_rows != 0) {
-        echo "ERROR, paciente ya registrado";
-        return;
-    }
+    // $consultaPacienteExiste = "SELECT personaID FROM Pacientes p WHERE p.personaID = '$curp'";
+    // $resultadoPacienteExiste = hacerQuery($consultaPacienteExiste);
+    // if ($resultadoPacienteExiste->num_rows != 0) {
+    //     echo "ERROR, paciente ya registrado";
+    //     return;
+    // }
 
 
-    // Paciente no existe, checar si ya existe en tabla de personas
-    $consultaPersonaExiste = "SELECT * FROM Personas p WHERE p.curp = '$curp'";
-    $resultadoPersonaExiste = hacerQuery($consultaPersonaExiste);
-    if ($resultadoPersonaExiste->num_rows == 0) {
-        echo "Persona no existe";
-        // Registrar a la persona
-        $consultaRegistrarPersona = "INSERT INTO Personas VALUES ('$nombre', '$sexo', '$dob', '$curp')";
-        $resultadoRegistrarPersona = hacerQuery($consultaRegistrarPersona);
+    // // Paciente no existe, checar si ya existe en tabla de personas
+    // $consultaPersonaExiste = "SELECT * FROM Personas p WHERE p.curp = '$curp'";
+    // $resultadoPersonaExiste = hacerQuery($consultaPersonaExiste);
+    // if ($resultadoPersonaExiste->num_rows == 0) {
+    //     echo "Persona no existe";
+    //     // Registrar a la persona
+    //     $consultaRegistrarPersona = "INSERT INTO Personas VALUES ('$nombre', '$sexo', '$dob', '$curp')";
+    //     $resultadoRegistrarPersona = hacerQuery($consultaRegistrarPersona);
 
-        if ($resultadoRegistrarPersona == false) {
-            echo "Error al registrar persona";
-            return;
-        }
-    } else {
-        echo "Persona sí existe";
-        // Sobre escribir los datos
-        $consultaSobreescribirPersona = "UPDATE Personas p SET nombre = '$nombre', sexo = '$sexo', dob = '$dob' WHERE p.curp='$curp'";
-        $resultadoSobreescribirPersona = hacerQuery($consultaSobreescribirPersona);
+    //     if ($resultadoRegistrarPersona == false) {
+    //         echo "Error al registrar persona";
+    //         return;
+    //     }
+    // } else {
+    //     echo "Persona sí existe";
+    //     // Sobre escribir los datos
+    //     $consultaSobreescribirPersona = "UPDATE Personas p SET nombre = '$nombre', sexo = '$sexo', dob = '$dob' WHERE p.curp='$curp'";
+    //     $resultadoSobreescribirPersona = hacerQuery($consultaSobreescribirPersona);
 
-        if ($resultadoSobreescribirPersona == false) {
-            echo "Error al sobreescribir persona";
-            return;
-        }
-    }
+    //     if ($resultadoSobreescribirPersona == false) {
+    //         echo "Error al sobreescribir persona";
+    //         return;
+    //     }
+    // }
 
-    // Ahora insertar datos de paciente
-    $consultaRegistrarPaciente = "INSERT INTO Pacientes VALUES('$nss', '$email', '$domicilio', '$telefono', '$tipoSangre', '$curp', '$curpMadre', '$curpPadre')";
-    $resultadoRegistrarPaciente = hacerQuery($consultaRegistrarPaciente);
+    // // Ahora insertar datos de paciente
+    // $consultaRegistrarPaciente = "INSERT INTO Pacientes VALUES('$nss', '$email', '$domicilio', '$telefono', '$tipoSangre', '$curp', '$curpMadre', '$curpPadre')";
+    // $resultadoRegistrarPaciente = hacerQuery($consultaRegistrarPaciente);
 
-    if ($resultadoRegistrarPaciente == false) {
-        echo "Error al registrar paciente";
-        return;
-    }
+    // if ($resultadoRegistrarPaciente == false) {
+    //     echo "Error al registrar paciente";
+    //     return;
+    // }
 
-    // Registrar alergias
-    foreach ($alergias as $alergia) {
-        $consultaRegistrarAlergia = "INSERT INTO Alergias VALUES ('$nss', '$alergia')";
-        $resultadoRegistrarAlergia = hacerQuery($consultaRegistrarAlergia);
+    // // Registrar alergias
+    // foreach ($alergias as $alergia) {
+    //     $consultaRegistrarAlergia = "INSERT INTO Alergias VALUES ('$nss', '$alergia')";
+    //     $resultadoRegistrarAlergia = hacerQuery($consultaRegistrarAlergia);
 
-        if ($resultadoRegistrarAlergia == false) {
-            echo "Error al registrar alergia";
-            return;
-        }
-    }
+    //     if ($resultadoRegistrarAlergia == false) {
+    //         echo "Error al registrar alergia";
+    //         return;
+    //     }
+    // }
 
-    // Registrar padecimientos
-    foreach ($padecimientos as $padecimiento) {
-        $consultaRegistrarPadecimiento = "INSERT INTO Padecimientos VALUES ('$nss', '$padecimiento')";
-        $resultadoRegistrarPadecimiento = hacerQuery($consultaRegistrarPadecimiento);
+    // // Registrar padecimientos
+    // foreach ($padecimientos as $padecimiento) {
+    //     $consultaRegistrarPadecimiento = "INSERT INTO Padecimientos VALUES ('$nss', '$padecimiento')";
+    //     $resultadoRegistrarPadecimiento = hacerQuery($consultaRegistrarPadecimiento);
 
-        if ($resultadoRegistrarPadecimiento == false) {
-            echo "Error al registrar padecimiento";
-            return;
-        }
-    }
+    //     if ($resultadoRegistrarPadecimiento == false) {
+    //         echo "Error al registrar padecimiento";
+    //         return;
+    //     }
+    // }
 
-    // Registrar medicamentos
-    foreach ($medicamentos as $medicamento) {
-        $consultaRegistrarMedicamento = "INSERT INTO Meds VALUES ('$medicamento->nombreMedicamento', '$medicamento->dosis', '$medicamento->indicaciones', '$nss')";
-        $resultadoRegistrarMedicamento = hacerQuery($consultaRegistrarMedicamento);
+    // // Registrar medicamentos
+    // foreach ($medicamentos as $medicamento) {
+    //     $consultaRegistrarMedicamento = "INSERT INTO Meds VALUES ('$medicamento->nombreMedicamento', '$medicamento->dosis', '$medicamento->indicaciones', '$nss')";
+    //     $resultadoRegistrarMedicamento = hacerQuery($consultaRegistrarMedicamento);
 
-        if ($resultadoRegistrarPadecimiento == false) {
-            echo "Error al registrar medicamento";
-            return;
-        }
-    }
+    //     if ($resultadoRegistrarPadecimiento == false) {
+    //         echo "Error al registrar medicamento";
+    //         return;
+    //     }
+    // }
 
-    // Registrar seguros
-    foreach ($seguros as $seguro) {
-        $consultaRegistrarSeguro = "INSERT INTO SegurosMedicos VALUES ('$seguro->compania', '$seguro->numeroPoliza', '$seguro->fechaVencimiento', '$nss')";
-        $resultadoRegistrarSeguro = hacerQuery($consultaRegistrarSeguro);
+    // // Registrar seguros
+    // foreach ($seguros as $seguro) {
+    //     $consultaRegistrarSeguro = "INSERT INTO SegurosMedicos VALUES ('$seguro->compania', '$seguro->numeroPoliza', '$seguro->fechaVencimiento', '$nss')";
+    //     $resultadoRegistrarSeguro = hacerQuery($consultaRegistrarSeguro);
 
-        if ($resultadoRegistrarSeguro == false) {
-            echo "Error al registrar seguro";
-            return;
-        }
-    }
+    //     if ($resultadoRegistrarSeguro == false) {
+    //         echo "Error al registrar seguro";
+    //         return;
+    //     }
+    // }
 
     $data['success'] = true;
     $data['message'] = 'Success!';
