@@ -99,11 +99,10 @@ CREATE TABLE DocInterconsultantes(
 );
 
 CREATE TABLE Meds(
-	id varchar(11),
     nombre varchar(100),
     dosis  varchar(20),
     indicaciones varchar(100),
     pacienteID  char(11),
-    PRIMARY KEY(id),
+    PRIMARY KEY(pacienteID, nombre),
     FOREIGN KEY(pacienteID) REFERENCES Pacientes(nss)
 );
