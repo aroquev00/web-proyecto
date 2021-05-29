@@ -5,7 +5,7 @@
 
     $user = $_SESSION['usuario'];
     $return_arr = array();
-    $query = "SELECT * FROM Personas p JOIN Pacientes pa ON p.curp = pa.personaID where personaID = '$user'";
+    $query = "SELECT * FROM Personas p JOIN Pacientes pa ON p.curp = pa.personaID JOIN SegurosMedicos s JOIN ConsultasMedicoPaciente c WHERE personaID = '$user'";
 
     $res = hacerQuery($query);
     if($res == false){
@@ -25,6 +25,15 @@
                 "nombre" => $row['nombre'],
                 "sexo" => $row['sexo'],
                 "dob" => $row['dob'],
+                "compañia" => $row['compania'],
+                "polizaNum" => $row['polizanum'],
+                "fechaVen" => $row['fechaVen'],
+                "razon" => $row['razon'],
+                "altura" => $row['altura'],
+                "peso" => $row['peso'],
+                "presion" => $row['presion'],
+                "comentario" => $row['comentario'],
+                "fecha" => $row['fecha'],
             );
         }
         echo json_encode($return_arr);
