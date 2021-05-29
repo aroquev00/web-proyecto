@@ -12,6 +12,14 @@ class Seguro {
     public $fechaVencimiento;
 }
 
+function returnError($idDivError, $errorDescription) {
+    $error['id'] = $idDivError;
+    $error['description'] = $errorDescription;
+    $data['success'] = false;
+    $data['error'] = $error;
+    echo json_encode($data);
+}
+
 function getTipoSangre($tipoSangreString) {
     switch ($tipoSangreString) {
         case 'oNegativo':
@@ -87,19 +95,19 @@ if (isset($_POST)) {
     for ($i = 1; $i <= $numMedicamentos; $i++) {
         $nombreMedicamento = $_POST["nombreMedicamento$i"];
         if ($nombreMedicamento == '') {
-            echo "Nombre de medicamento vacío!";
+            returnError("nombreMedicamento$i", "Nombre de medicamento vacío");
             return;
         }
 
         $dosis = $_POST["dosisMedicamento$i"];
         if ($dosis == '') {
-            echo "Dosis de medicamento vacía!";
+            returnError("dosisMedicamento$i", "Dosis de medicamento vacía");
             return;
         }
 
         $indicaciones = $_POST["indicacionesMedicamento$i"];
         if ($indicaciones == '') {
-            echo "Indicaciones de medicamento vacías!";
+            returnError("indicacionesMedicamento$i", "Indicaciones de medicamento vacías");
             return;
         }
 
@@ -123,19 +131,19 @@ if (isset($_POST)) {
     for ($i = 1; $i <= $numSeguros; $i++) {
         $compania = $_POST["compSeguro$i"];
         if ($compania == '') {
-            echo "Compañía de seguro vacío!";
+            returnError("compSeguro$i", "Compañía de seguro vacías");
             return;
         }
 
         $numeroPoliza = $_POST["polizaSeguro$i"];
         if ($numeroPoliza == '') {
-            echo "Póliza de seguro vacía!";
+            returnError("polizaSeguro$i", "Póliza de seguro vacías");
             return;
         }
 
         $fechaVencimiento = $_POST["fechaVencimientoSeguro$i"];
         if ($fechaVencimiento == '') {
-            echo "Fecha de vencimiento de seguro vacía!";
+            returnError("fechaVencimientoSeguro$i", "Fecha de vencimiento de seguro vacías");
             return;
         }
 
@@ -236,6 +244,8 @@ if (isset($_POST)) {
         }
     }
 
-    echo "Success";
+    $data['success'] = true;
+    $data['message'] = 'Success!';
+    echo json_encode($data);
     return;
 }
