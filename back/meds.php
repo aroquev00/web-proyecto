@@ -39,36 +39,31 @@
       
     </nav>
     <main style="text-align: center;">
-     
-        <form class="formWrapper">
-            <input type="text" id="med" placeholder="Medicamento">
-            <input type="text" id="pres" placeholder="Presentacion">
-            <input type="button" id="add-row" class="btn-submit" value="Agregar Medicamento" style="margin-top: 25px;">
-        </form>
-        <form action="/action_page.php" id="" class="formWrapper">
-            <input type="file" id="myFile" name="filename">
-            <input type="submit" class="btn-submit">
-        </form>
+        <?php
+        session_start();
     
+        include('db/conexionDB.php');
+
+        $consulta = "SELECT nombre , COUNT(*) AS num FROM Meds GROUP BY nombre"
+
+        $resultado = hacerQuery($consulta)
+
+        if ($resultado->num_rows > 0) { ?>
+
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Numero de veces recetado</th> 
+                </tr>
+                <?php while($row = $resultado->fetch_assoc()) { ?>
+                <tr>
+                    <td><?=$row['nombre'];?></td>
+                    <td><?=$row['num'];?></td> 
+                </tr>
+                <?php }?>
+            </table>
         
-        <table>
-            <thead>
-                <tr>
-                    <th>Medicamento</th>
-                    <th>Presentacion</th>
-                    <th>Select</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Aspirina</td>
-                    <td>20 tabletas 50mg</td>
-                    <td><input type="checkbox" name="record"></td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
-        <button type="button" id="delete-row" class="btn-submit">Delete Row</button>
+        <?php } else { echo "0 resultados"; } ?>
     </main>
 </body> 
 </html>
