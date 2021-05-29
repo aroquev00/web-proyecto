@@ -44,9 +44,9 @@
     
         include('db/conexionDB.php');
 
-        $consulta = "SELECT nombre , COUNT(*) AS num FROM Meds GROUP BY nombre"
+        $consulta = "SELECT nombre , COUNT(*) AS num FROM Meds GROUP BY nombre";
 
-        $resultado = hacerQuery($consulta)
+        $resultado = hacerQuery($consulta);
 
         if ($resultado->num_rows > 0) { ?>
 
