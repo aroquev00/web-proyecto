@@ -71,8 +71,8 @@ if (isset($_POST)) {
     // Alergias
     $alergias = array_filter(
         $_POST,
-        fn ($value, $key) => str_contains($key, 'alergia') && $value != '',
-        ARRAY_FILTER_USE_BOTH
+        fn ($key) => str_contains($key, 'alergia'),
+        ARRAY_FILTER_USE_KEY
     );
 
     foreach ($alergias as $key => $value) {
@@ -86,8 +86,8 @@ if (isset($_POST)) {
     // Padecimientos
     $padecimientos = array_filter(
         $_POST,
-        fn ($value, $key) => str_contains($key, 'padecimiento') && $value != '',
-        ARRAY_FILTER_USE_BOTH
+        fn ($key) => str_contains($key, 'padecimiento'),
+        ARRAY_FILTER_USE_KEY
     );
 
     foreach ($padecimientos as $key => $value) {
