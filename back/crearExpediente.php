@@ -52,6 +52,7 @@ if (isset($_POST)) {
     $dob = $_POST['dob'];
     $curp = $_POST['curp'];
     $nss = $_POST['nss'];
+    $password = $_POST['password'];
 
     // Datos de Contacto
     $telefono = $_POST['telefono'];
@@ -59,8 +60,10 @@ if (isset($_POST)) {
     $domicilio = $_POST['domicilio'];
 
     // Datos Familiares
-    $curpPadre = ($_POST['curpPadre'] != "") ? $_POST['curpPadre'] : "NULL";
-    $curpMadre = ($_POST['curpMadre'] != "") ? $_POST['curpMadre'] : "NULL";
+    $cP = $_POST['curpPadre'];
+    $cM = $_POST['curpMadre'];
+    $curpPadre = ($_POST['curpPadre'] != "") ? "'$cP'" : "NULL";
+    $curpMadre = ($_POST['curpMadre'] != "") ? "'$cM'" : "NULL";
 
     // Datos Médicos
     $tipoSangre = getTipoSangre($_POST['tipoSangre']);
@@ -171,9 +174,9 @@ if (isset($_POST)) {
     //echo print_r($seguros);
 
     //Primero checar si el paciente ya existe
-    $consultaPacienteExiste = "SELECT personaID FROM Pacientes p WHERE p.personaID = '$curp'";
+    $consultaPacienteExiste = "SELECT personaID FROM Pacientes p WHERE p.nss = '$nss'";
     $resultadoPacienteExiste = hacerQuery($consultaPacienteExiste);
-    if ($resultadoPacienteExiste->num_rows != 0) {
+    if ($resultadoPacienteExiste->num_rows == 1) {
         returnError("nss", "Paciente ya registrado");
         return;
     }
@@ -193,7 +196,7 @@ if (isset($_POST)) {
             return;
         }
     } else {
-        echo "Persona sí existe";
+        //echo "Persona sí existe";
         // Sobre escribir los datos
         $consultaSobreescribirPersona = "UPDATE Personas p SET nombre = '$nombre', sexo = '$sexo', dob = '$dob' WHERE p.curp='$curp'";
         $resultadoSobreescribirPersona = hacerQuery($consultaSobreescribirPersona);
@@ -205,13 +208,15 @@ if (isset($_POST)) {
     }
 
     // Ahora insertar datos de paciente
-    $consultaRegistrarPaciente = "INSERT INTO Pacientes VALUES('$nss', '$email', '$domicilio', '$telefono', '$tipoSangre', '$curp', '$curpMadre', '$curpPadre')";
+    $consultaRegistrarPaciente = "INSERT INTO Pacientes VALUES('$nss', '$email', '$domicilio', '$telefono', '$tipoSangre', '$curp', $curpMadre, $curpPadre, '$password')";
     $resultadoRegistrarPaciente = hacerQuery($consultaRegistrarPaciente);
 
     if ($resultadoRegistrarPaciente == false) {
         returnError('form', "Error al registrar paciente en la Base de Datos");
         return;
     }
+
+    
 
     // Registrar alergias
     foreach ($alergias as $alergia) {

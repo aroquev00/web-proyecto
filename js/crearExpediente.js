@@ -239,6 +239,7 @@ $(document).ready(function() {
       dob: $("#dob").val(),
       curp: $("#curp").val(),
       nss: $("#nss").val(),
+      password: $("#password").val(),
       telefono: $("#telefono").val(),
       email: $("#email").val(),
       domicilio: $("#domicilio").val(),
@@ -267,7 +268,7 @@ $(document).ready(function() {
       formData[`fechaVencimientoSeguro${i}`]= $(`#fechaVencimientoSeguro${i}`).val();
     }
     // console.log("Xd");
-    // console.log(formData);
+     console.log(formData);
 
     $.ajax({
       type: "POST",

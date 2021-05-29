@@ -24,10 +24,11 @@ CREATE TABLE Pacientes(
     personaID  char(18),
     madre 	   char(11),
     padre	   char(11),
+    contraseña varchar(50),
     PRIMARY KEY(nss),
     FOREIGN KEY(personaID) REFERENCES Personas(curp),
-    FOREIGN KEY(madre) REFERENCES Personas(nss),
-    FOREIGN KEY(padre) REFERENCES Personas(nss)
+    FOREIGN KEY(madre) REFERENCES Personas(curp),
+    FOREIGN KEY(padre) REFERENCES Personas(curp)
 );
 
 
