@@ -165,6 +165,10 @@ function agregarOtroSeguro() {
 
 
 $(document).ready(function() {
+  $("#erase").click(function() {
+    resetErrorMessages();
+  });
+
   $("form").submit(function(event) {
     
     // $("#submit").click( function () {
