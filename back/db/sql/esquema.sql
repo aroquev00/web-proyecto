@@ -47,12 +47,11 @@ CREATE TABLE ConsultasMedicoPaciente(
 
 
 CREATE TABLE SegurosMedicos(
-	id   varchar(10),
-    compañia varchar(50),
+    compania varchar(50),
     polizanum varchar(20),
     fechaVen date,
     pacienteID char(11),
-    PRIMARY KEY(id),
+    PRIMARY KEY(compania, polizanum),
     FOREIGN KEY(pacienteID) REFERENCES Pacientes(nss)
 );
 
@@ -99,11 +98,10 @@ CREATE TABLE DocInterconsultantes(
 );
 
 CREATE TABLE Meds(
-	id varchar(11),
     nombre varchar(100),
     dosis  varchar(20),
     indicaciones varchar(100),
     pacienteID  char(11),
-    PRIMARY KEY(id),
+    PRIMARY KEY(pacienteID, nombre),
     FOREIGN KEY(pacienteID) REFERENCES Pacientes(nss)
 );
