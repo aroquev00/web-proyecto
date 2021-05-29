@@ -167,6 +167,10 @@ function agregarOtroSeguro() {
 $(document).ready(function() {
   $("form").submit(function(event) {
     
+    // $("#submit").click( function () {
+      resetErrorMessages();
+    //event.preventDefault();
+    
     var formData = {
       primerNombre: $("#primerNombre").val(),
       apellido: $("#apellido").val(),
@@ -183,26 +187,26 @@ $(document).ready(function() {
     }
 
     for (let i = 1; i <= numeroAlergias; i++) {
-      formData[`alergia${i}`]= $(`#alergia${i}`);
+      formData[`alergia${i}`]= $(`#alergia${i}`).val();
     }
 
     for (let i = 1; i <= numeroPadecimientos; i++) {
-      formData[`padecimiento${i}`]= $(`#padecimiento${i}`);
+      formData[`padecimiento${i}`]= $(`#padecimiento${i}`).val();
     }
 
     for (let i = 1; i <= numeroMedicamentos; i++) {
-      formData[`nombreMedicamento${i}`]= $(`#nombreMedicamento${i}`);
-      formData[`dosisMedicamento${i}`]= $(`#dosisMedicamento${i}`);
-      formData[`indicacionesMedicamento${i}`]= $(`#indicacionesMedicamento${i}`);
+      formData[`nombreMedicamento${i}`]= $(`#nombreMedicamento${i}`).val();
+      formData[`dosisMedicamento${i}`]= $(`#dosisMedicamento${i}`).val();
+      formData[`indicacionesMedicamento${i}`]= $(`#indicacionesMedicamento${i}`).val();
     }
 
     for (let i = 1; i <= numeroSeguros; i++) {
-      formData[`compSeguro${i}`]= $(`#compSeguro${i}`);
-      formData[`polizaSeguro${i}`]= $(`#polizaSeguro${i}`);
-      formData[`fechaVencimientoSeguro${i}`]= $(`#fechaVencimientoSeguro${i}`);
+      formData[`compSeguro${i}`]= $(`#compSeguro${i}`).val();
+      formData[`polizaSeguro${i}`]= $(`#polizaSeguro${i}`).val();
+      formData[`fechaVencimientoSeguro${i}`]= $(`#fechaVencimientoSeguro${i}`).val();
     }
-    console.log("Xd");
-    console.log(formData);
+    // console.log("Xd");
+    // console.log(formData);
 
     $.ajax({
       type: "POST",
@@ -212,8 +216,26 @@ $(document).ready(function() {
       encode: true,
     }).done(function(data) {
       console.log(data);
+      if (!data.success) {
+        const errorMessageSpan = document.createElement("span");
+        errorMessageSpan.id = 'errorMessage';
+        errorMessageSpan.innerText = data.error.description;
+
+        document.getElementById(data.error.id).after(errorMessageSpan);
+        errorMessageSpan.scrollIntoView();
+      } else {
+        // MARK SUCCESS
+      }
+
     });
 
-    event.preventDefault();
+   event.preventDefault();
   });
 });
+
+function resetErrorMessages() {
+  var element = document.getElementById('errorMessage');
+  if (element != null) {
+    element.remove();
+  } 
+}
