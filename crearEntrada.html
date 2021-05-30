@@ -57,13 +57,13 @@
         <!-- Tab panes -->
         <div class="tab-content">
         <div class="tab-pane container active" id="Consulta">
-            <form method="GET" class="pt-3 form">
+            <form method="POST" class="pt-3 form" action="back/crearEntrada.php">
                 <fieldset>
+                        <input style="display: none;" name="action" value="consulta">
                 
                         <label for="fecha">Fecha</label>
                         <input type="date" id="fecha" name="fecha" required> <br>
-                    
-                    
+                        
                         <label for="razon">Razón de Visita</label>
                         <input type="text" id="razon" name="razon" required> <br>
                     
@@ -80,55 +80,59 @@
                         <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Escriba aquí cualquier observación." required></textarea>
                         <br><br>
                         <div id="input-btns" style="text-align: center;">
-                            <button class="btn-submit" id="guardarConsulta">Guardar Consulta</button>
+                            <input type="submit" class="btn-submit" id="guardarConsulta" value="Guardar Consulta">
                             <input class="btn-submit" type="reset" value="Borrar Datos">
                         </div>
-
-                </fieldset>
-            </form>
+                        
+                      </fieldset>
+                    </form>
         </div>
         <div class="tab-pane container" id="Hospitalizacion">
-            <form method="GET" class="pt-3 form">
+            <form method="POST" class="pt-3 form" action="back/crearEntrada.php">
                 <fieldset>
                 
+                    <input style="display: none;" name="action" value="hospitalizacion">
+                    <input style="display: none;" value="" id="cant" name="cantDrs">
+
                     <label for="fechaIn">Fecha de Entrada</label>
                     <input type="date" id="fechaIn" name="fechaIn" required> <br>
 
                     <label for="fechaOut">Fecha de Salida</label>
                     <input type="date" id="fechaOut" name="fechaOut"> <br>
                 
-                
+                    
                     <label for="hospital">Hospital</label>
                     <input type="text" id="hospital" name="hospital" required> <br>
                 
                     <label for="peso">Doctor Tratante</label>
                     <input type="text" id="drTratante" name="drTratante" required> <br>
-
                     
                     <div id="drInters">
                       <label for="peso">Doctor&#40;es&#41; Interconsultante&#40;s&#41;</label>
-                      <input type="text" id="drInter1" name="drInter"> 
+                      <!-- <input type="text" id="drInter1" name="drInter">  -->
                       <button  type="button"class="btn-submit" id="btnOtroDr">+</button><br>
                     </div>
                     
                 
-                  
                     <label for="comentarios">Comentarios</label> <br>   
                     <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Escriba aquí cualquier observación." required></textarea>
                     <br><br>
                     <div id="input-btns">
-                        <button class="btn-submit" id="guardarHospitalizacion">Guardar Hospitalizacion</button>
+                        <input type="submit" class="btn-submit" id="guardarHospitalizacion" value="Guardar Hospitalización">
                         <input class="btn-submit" type="reset" value="Borrar Datos">
                     </div>
 
+
             </fieldset>
             </form>
+            <div id="respuesta">
+
+            </div>
         </div>
         </div>
     </div>
 
 
-    
 
   </main>
 
@@ -139,7 +143,11 @@
   <!--jQuery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/main.js"></script>
+
+  <script>  
+  </script>
  
 </body>
 
 </html>
+

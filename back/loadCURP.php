@@ -20,7 +20,7 @@
     if ($valid == "null") {
         echo "null";
     } else {
-        $_SESSION["usuario"] = $usuarioInput;
+        $_SESSION["paciente"] = $usuarioInput;
     }
 
 ?>

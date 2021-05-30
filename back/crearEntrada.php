@@ -26,11 +26,12 @@
                 
                 $action = $_POST['action'];
     
-                $paciente = $_SESSION['usuario'];
+                $paciente = $_SESSION['paciente'];
                
                 $exito = true;
                 
                 $query = "SELECT nss FROM Pacientes WHERE PersonaID = '$paciente'";
+            
                 $resultado = hacerQuery($query);
                 
                 $row = mysqli_fetch_array($resultado);
@@ -57,12 +58,12 @@
     
                     if(isset($_POST['presion']) && $_POST['presion'] !== ""){
                         $presion = $_POST['presion'];
+                        $query = "INSERT INTO ConsultasMedicoPaciente VALUES ('$medico', '$nss', $altura, $peso, $presion, '$razon', '$comentarios', '$fecha')";
                     }else{
-                        $presion = "null";
-                    }
+                        $query = "INSERT INTO ConsultasMedicoPaciente VALUES ('$medico', '$nss', $altura, $peso, null, '$razon', '$comentarios', '$fecha')";                    }
     
     
-                    $query = "INSERT INTO ConsultasMedicoPaciente VALUES ('$medico', '$nss', $altura, $peso, '$presion', '$razon', '$comentarios', '$fecha')";
+                
                     $resultado = hacerQuery($query);
                     if($resultado == false){
                         $exito = false;
@@ -87,12 +88,14 @@
                     }
 
                     $query = "SELECT m.cedula FROM Medicos m JOIN Personas p ON m.personaID = p.curp WHERE p.nombre = '$drTratante'";
+                
                     $resultado = hacerQuery($query);
-                    echo $query;
+                  
                     if($resultado == true){
                             
                         if(mysqli_num_rows($resultado) == 0){
                             $query = "INSERT INTO Internados VALUES ('$hospital', '$nss', '$fechain', '$fechaout', '$drTratante', null,'$comentariosH')";
+                        
                             $resultado = hacerQuery($query);
                             if($resultado == false){
                                 $exito = false;
@@ -103,6 +106,7 @@
             
                             $cedula = $row["cedula"];
                             if($cedula != null){
+                            
                                 $query = "INSERT INTO Internados VALUES ('$hospital', '$nss', '$fechain', '$fechaout', '$drTratante', '$cedula', '$comentariosH')";
                                 $resultado = hacerQuery($query);
                                 if($resultado == false){
@@ -126,7 +130,7 @@
                             if($drsInter[$i] == '') continue;
         
                             $query = "SELECT m.cedula FROM Medicos m JOIN Personas p ON m.personaID = p.curp WHERE p.nombre = '$drsInter[$i]'";
-                            
+                        
                             $resultado = hacerQuery($query);
                             if($resultado == true){
                                 

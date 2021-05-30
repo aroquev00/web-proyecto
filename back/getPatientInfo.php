@@ -3,9 +3,9 @@
     session_start();
     include('db/conexionDB.php');
 
-    $user = $_SESSION['usuario'];
+    $user = $_SESSION['paciente'];
     $return_arr = array();
-    $query = "SELECT * FROM Personas p JOIN Pacientes pa ON p.curp = pa.personaID JOIN SegurosMedicos s JOIN ConsultasMedicoPaciente c WHERE personaID = '$user'";
+    $query ="SELECT * FROM Personas p JOIN Pacientes pa ON p.curp = pa.personaID JOIN SegurosMedicos s JOIN ConsultasMedicoPaciente c WHERE personaID = '$user'" ;
 
     $res = hacerQuery($query);
     if($res == false){
