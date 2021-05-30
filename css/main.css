@@ -394,3 +394,7 @@ table th, table td{
         flex-direction: column;
     }
 }
+
+#errorMessage {
+    color: red;
+}
