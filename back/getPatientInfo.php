@@ -5,7 +5,7 @@
 
     $user = $_SESSION['paciente'];
     $return_arr = array();
-    $query ="SELECT * FROM Personas p JOIN Pacientes pa ON p.curp = pa.personaID JOIN SegurosMedicos s JOIN ConsultasMedicoPaciente c WHERE personaID = '$user'" ;
+    $query ="SELECT * FROM Personas p JOIN Pacientes pa ON p.curp = pa.personaID JOIN SegurosMedicos s JOIN ConsultasMedicoPaciente c WHERE personaID = '$user' ORDER BY c.fecha desc";
 
     $res = hacerQuery($query);
     if($res == false){

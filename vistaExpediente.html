@@ -143,35 +143,11 @@
                 </div>
             </div>
 
-            <!-- Ejemplo de Consulta -->
-            <div class="entrada consulta">
-                <h1>Entrada #1</h1>
-                <b>Tipo: </b><span class="tipoEntrada">Consulta </span><br>
-                <div class="flex-container">
-        
-                    <div class="flex-item-info flex-5">
-                        <b>Fecha: </b><span id="fecha"> </span>
-                    </div>
-                    <div class="flex-item-info flex-5">
-                        <b>Razón: </b><span id="razon"> </span>
-                    </div>
-                    <div class="flex-item-info flex-5">
-                        <b>Peso: </b><span id="peso"> kg</span>
-                    </div>
-                    <div class="flex-item-info flex-5">
-                        <b>Altura: </b><span id="altura"> cm</span>
-                    </div>
-                    <div class="flex-item-info flex-5">
-                        <b>Presión: </b><span id="presion"> </span>
-                    </div>
-                    
-                </div>
-                <div>
-                    <br>
-                    <b>Comentarios:</b> <br> <span id="comentario"> </span>
-                </div>
+            <div id="entradas">
+
             </div>
 
+            
             <!-- Ejemplo de Hospitalización -->
             <!-- <div class="entrada hospitalizacion">
                 <h1>Entrada #2</h1>
@@ -221,6 +197,8 @@
                     console.log("Error in query (back/getPatientInfo.php)");
                 else {
                     var patientInfo = res;
+                    var cantEntradas = patientInfo.length;
+                    //Llenar info básica
                     document.getElementById("nombre").innerHTML = patientInfo[0]["nombre"];
                     document.getElementById("sexo").innerHTML = patientInfo[0]["sexo"];
                     document.getElementById("dob").innerHTML = patientInfo[0]["dob"];
@@ -235,12 +213,117 @@
                     document.getElementById("compañia").innerHTML = patientInfo[0]["compañia"];
                     document.getElementById("polizaNum").innerHTML = patientInfo[0]["polizaNum"];
                     document.getElementById("fechaVen").innerHTML = patientInfo[0]["fechaVen"];
-                    document.getElementById("razon").innerHTML = patientInfo[0]["razon"];
-                    document.getElementById("altura").innerHTML = patientInfo[0]["altura"];
-                    document.getElementById("presion").innerHTML = patientInfo[0]["presion"];
-                    document.getElementById("peso").innerHTML = patientInfo[0]["peso"];
-                    document.getElementById("comentario").innerHTML = patientInfo[0]["comentario"];
-                    document.getElementById("fecha").innerHTML = patientInfo[0]["fecha"];
+
+
+                    for(var i=0;i<cantEntradas;i++){
+
+                        console.log(cantEntradas);
+                        var j = i+1;
+                        const newDiv = document.createElement("div");
+                        newDiv.setAttribute("class", "entrada consulta");
+                        
+                        const newHeader = document.createElement("h1");
+                        newHeader.innerText = "Entrada #"+j;
+
+                        
+                        const newB = document.createElement("b");
+                        newB.innerText = "Tipo:"
+                        
+                        const newS = document.createElement("span");
+                        newS.innerText = " Consulta";
+                        newS.setAttribute("class","tipoEntrada");
+                        
+                        const newBr = document.createElement("br");
+
+                        const newDivFlex = document.createElement("div");
+                        newDivFlex.setAttribute("class","flex-container");
+                        
+                        //Creación de fecha
+                        const newDivFlexFecha = document.createElement("div");
+                        newDivFlexFecha.setAttribute("class","flex-item-info flex-4");
+                        const newBFecha = document.createElement("b");
+                        newBFecha.innerText = "Fecha: ";
+                        const newSFecha = document.createElement("span");
+                        newSFecha.setAttribute("id", "fecha"+i);
+                        newDivFlexFecha.appendChild(newBFecha);
+                        newDivFlexFecha.appendChild(newSFecha);
+                        newDivFlex.appendChild(newDivFlexFecha);
+
+                        
+                        //Creación de peso
+                        const newDivFlexPeso = document.createElement("div");
+                        newDivFlexPeso.setAttribute("class","flex-item-info flex-4");
+                        const newBPeso = document.createElement("b");
+                        newBPeso.innerText = "Peso: ";
+                        const newSPeso = document.createElement("span");
+                        newSPeso.setAttribute("id", "peso"+i);
+                        newDivFlexPeso.appendChild(newBPeso);
+                        newDivFlexPeso.appendChild(newSPeso);
+                        newDivFlex.appendChild(newDivFlexPeso);
+
+                        //Creación de altura
+                        const newDivFlexAlt = document.createElement("div");
+                        newDivFlexAlt.setAttribute("class","flex-item-info flex-4");
+                        const newBAlt = document.createElement("b");
+                        newBAlt.innerText = "Altura: ";
+                        const newSAlt = document.createElement("span");
+                        newSAlt.setAttribute("id", "altura"+i);
+                        newDivFlexAlt.appendChild(newBAlt);
+                        newDivFlexAlt.appendChild(newSAlt);
+                        newDivFlex.appendChild(newDivFlexAlt);
+
+                        //Creación de presión
+                        const newDivFlexPresion = document.createElement("div");
+                        newDivFlexPresion.setAttribute("class","flex-item-info flex-4");
+                        const newBPresion = document.createElement("b");
+                        newBPresion.innerText = "Presión: ";
+                        const newSPresion = document.createElement("span");
+                        newSPresion.setAttribute("id", "presion"+i);
+                        newDivFlexPresion.appendChild(newBPresion);
+                        newDivFlexPresion.appendChild(newSPresion);
+                        newDivFlex.appendChild(newDivFlexPresion);
+
+                        //Creación de razón
+                        const newDivFlexRazon = document.createElement("div");
+                        const newBRazon = document.createElement("b");
+                        newBRazon.innerText = "Razon: ";
+                        const newSRazon = document.createElement("span");
+                        newSRazon.setAttribute("id", "razon"+i);
+                        newDivFlexRazon.appendChild(newBRazon);
+                        newDivFlexRazon.appendChild(newSRazon);
+                        
+
+                        //Creación de comentarios
+                        const newDivFlexComen = document.createElement("div");
+                        const newBComen = document.createElement("b");
+                        newBComen.innerText = "Comentarios: \n";
+                        const newSComen = document.createElement("span");
+                        newSComen.setAttribute("id", "comentario"+i);
+                        newDivFlexComen.appendChild(newBComen);
+                        newDivFlexComen.appendChild(newBr);
+                        newDivFlexComen.appendChild(newSComen);
+                        
+                        
+                        newDiv.appendChild(newHeader);
+                        newDiv.appendChild(newB);
+                        newDiv.appendChild(newS);
+                        newDiv.appendChild(newBr);
+                        newDiv.appendChild(newDivFlex);
+                        newDiv.appendChild(newDivFlexRazon);
+
+                        newDiv.appendChild(newDivFlexComen);
+                        document.getElementById("entradas").appendChild(newDiv); 
+
+                        document.getElementById("razon"+i).innerHTML = patientInfo[i]["razon"];
+                        document.getElementById("altura"+i).innerHTML = patientInfo[i]["altura"];
+                        document.getElementById("presion"+i).innerHTML = patientInfo[i]["presion"];
+                        document.getElementById("peso"+i).innerHTML = patientInfo[i]["peso"];
+                        document.getElementById("comentario"+i).innerHTML = patientInfo[i]["comentario"];
+                        document.getElementById("fecha"+i).innerHTML = patientInfo[i]["fecha"];
+
+
+                    }
+               
                 }
             })
             .fail(function(){
