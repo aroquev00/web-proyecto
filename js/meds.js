@@ -24,6 +24,7 @@
     let recetados = data[a][1];
 
     html += "<tr>";
+    html += "<th scope='row'>" + (a + 1) + "</th>"
     html += "<td>" + nombre + "</td>";
     html += "<td>" + recetados + "</td>";
     html += "</tr>";
