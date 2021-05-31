@@ -42,189 +42,143 @@
     <h2> <i class="fas fa-clipboard"></i> Creación de Expediente de Paciente</i> </h2>
 
     <div id="wrapper">
-      <form method="GET" action="./confRegDatos.html" class="form">
-        <fieldset>
-          <legend>Datos personales</legend>
-
-          <label for="nombre">Nombre</label>
-          <input type="text" id="primerNombre" name="primerNombre" placeholder="Juan" required autofocus
-            autocomplete="on">
-          <br>
-
-          <label for="apellido">Apellido</label>
-          <input type="text" id="apellido" name="apellido" placeholder="Pérez" required autocomplete="on">
-          <br>
-
-          <label for="sexo">Sexo</label>
-          <select name="sexo" id="sexo">
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-          </select>
-          <br>
-
-          <label for="dob">Fecha de nacimiento</label>
-          <input type="date" id="dob" name="dob" required>
-          <br>
-
-          <label for="curp">CURP</label>
-          <input type="text" id="curp" name="curp" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]" placeholder="HEGG560427MVZRRL04" required autocomplete="on">
-          <br>
-
-          <label for="nss">Número de Seguridad Social</label>
-          <input type="text" id="nss" name="nss" pattern="\d{11}" placeholder="72795608040" required autocomplete="on">
-          <br>
-
-        </fieldset>
-        <br>
-
-        <fieldset>
-          <legend>Datos de Contacto</legend>
-
-          <label for="telefono">Teléfono:</label>
-          <input type="tel" id="telefono" name="telefono" pattern="\d{10}" placeholder="8183003000" required>
-          <br>
-
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" placeholder="juan.perez@gmail.com" autocomplete="on" required>
-          <br>
-
-          <label for="domicilio">Domicilio</label>
-          <input type="text" id="domicilio" name="domicilio" placeholder="43 Río Viejo, Linda Vista, Monterrey" required>
-          <br>
-
-        </fieldset>
-        <br>
-
-        <fieldset>
-          <legend>Datos Familiares</legend>
-
-          <label for="curpPadre">CURP del padre</label>
-          <input type="text" id="curpPadre" name="curpPadre" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]" placeholder="HEGG560427MVZRRL04" autocomplete="on">
-          <br>
-
-          <label for="curpMadre">CURP de la madre</label>
-          <input type="text" id="curpMadre" name="curpMadre" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]" placeholder="HEGG560427MVZRRL04" autocomplete="on">
-          <br>
-
-        </fieldset>
-        <br>
-
-        <fieldset>
-          <legend>Datos médicos</legend>
-
-          <label for="tipoSangre">Tipo de sangre</label>
-          <select name="tipoSangre" id="tipoSangre">
-            <option value="oNegativo">O-</option>
-            <option value="oPositivo">O+</option>
-            <option value="aNegativo">A-</option>
-            <option value="aPositivo">A+</option>
-            <option value="bNegativo">B-</option>
-            <option value="bPositivo">B+</option>
-            <option value="abNegativo">AB-</option>
-            <option value="abPositivo">AB+</option>
-          </select>
-          <br>
-
-        </fieldset>
-        <br>
-
-        <fieldset>
-          <legend>Alergias</legend>
-
-          <div id="alergias">
-            <label for="alergia1">Alergia 1</label>
-            <input type="text" id="alergia1" name="alergia1">
-            <button type="button" class="btn-submit" id="btnOtraAlergia">+</button>
+      <div id="form">
+        <form method="POST" class="form">
+          <fieldset>
+            <legend>Datos personales</legend>
+  
+            <label for="primerNombre">Nombre</label>
+            <input type="text" id="primerNombre" name="primerNombre" placeholder="Juan" required autofocus
+              autocomplete="on">
             <br>
-          </div>
-
-
-        </fieldset>
-
-        <br>
-
-        <fieldset>
-          <legend>Padecimientos</legend>
-
-          <div id="padecimientos">
-            <label for="padecimiento1">Padecimiento 1</label>
-            <input type="text" id="padecimiento1" name="padecimiento1">
-            <button type="button" class="btn-submit" id="btnOtroPadecimiento">+</button>
+  
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Pérez" required autocomplete="on">
             <br>
-          </div>
+  
+            <label for="sexo">Sexo</label>
+            <select name="sexo" id="sexo">
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+            </select>
+            <br>
+  
+            <label for="dob">Fecha de nacimiento</label>
+            <input type="date" id="dob" name="dob" required>
+            <br>
+  
+            <label for="curp">CURP</label>
+            <input type="text" id="curp" name="curp" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]" placeholder="HEGG560427MVZRRL04" required autocomplete="on">
+            <br>
+  
+            <label for="nss">Número de Seguridad Social</label>
+            <input type="text" id="nss" name="nss" pattern="\d{11}" placeholder="72795608040" required autocomplete="on">
+            <br>
 
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+  
+          </fieldset>
           <br>
-        </fieldset>
-
-        <br>
-
-        <fieldset>
-          <legend>Medicamentos</legend>
-
-
-          <div id="medicamentos">
-            <div id="medicamento1">
-              <div id="tituloMedicamento1">Medicamento 1</div>
-
-              <label for="nombreMedicamento1">Nombre del medicamento</label>
-              <input type="text" id="nombreMedicamento1" name="nombreMedicamento1">
-              <br>
-
-              <label for="dosisMedicamento1">Dósis</label>
-              <input type="text" id="dosisMedicamento1" name="dosisMedicamento1">
-              <br>
-
-              <label for="indicacionesMedicamento1">Indicaciones</label>
-              <br>
-              <textarea id="indicacionesMedicamento1" name="indicacionesMedicamento1" rows="3" cols="40"></textarea>
-              <button style="display: inline;" type="button" class="btn-submit" id="btnOtroMedicamento">+</button>
-              <br> <br>
-            </div>
-
-          </div>
-
+  
+          <fieldset>
+            <legend>Datos de Contacto</legend>
+  
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" pattern="\d{10}" placeholder="8183003000" required>
+            <br>
+  
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="juan.perez@gmail.com" autocomplete="on" required>
+            <br>
+  
+            <label for="domicilio">Domicilio</label>
+            <input type="text" id="domicilio" name="domicilio" placeholder="43 Río Viejo, Linda Vista, Monterrey" required>
+            <br>
+  
+          </fieldset>
           <br>
-
-
-        </fieldset>
-
-        <br>
-
-        <fieldset>
-          <legend>Seguros Médicos</legend>
-
-          <div id="seguros">
-            <div id="seguro1">
-              <div id="tituloSeguro1">Seguro 1</div>
-
-              <label for="compSeguro1">Compañía aseguradora</label>
-              <input type="text" id="compSeguro1" name="compSeguro1">
-              <br>
-
-              <label for="polizaSeguro1">Número de póliza</label>
-              <input type="text" id="polizaSeguro1" name="polizaSeguro1">
-              <br>
-
-              <label for="fechaVencimientoSeguro1">Fecha de vencimiento</label>
-              <input type="date" id="fechaVencimientoSeguro1" name="fechaVencimientoSeguro1">
-              <button type="button" class="btn-submit" id="btnOtroSeguro">+</button>
-              <br> <br>
-            </div>
-
-          </div>
-
+  
+          <fieldset>
+            <legend>Datos Familiares</legend>
+  
+            <label for="curpPadre">CURP del padre</label>
+            <input type="text" id="curpPadre" name="curpPadre" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]" placeholder="HEGG560427MVZRRL04" autocomplete="on">
+            <br>
+  
+            <label for="curpMadre">CURP de la madre</label>
+            <input type="text" id="curpMadre" name="curpMadre" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]" placeholder="HEGG560427MVZRRL04" autocomplete="on">
+            <br>
+  
+          </fieldset>
           <br>
+  
+          <fieldset>
+            <legend>Datos médicos</legend>
+  
+            <label for="tipoSangre">Tipo de sangre</label>
+            <select name="tipoSangre" id="tipoSangre">
+              <option value="oNegativo">O-</option>
+              <option value="oPositivo">O+</option>
+              <option value="aNegativo">A-</option>
+              <option value="aPositivo">A+</option>
+              <option value="bNegativo">B-</option>
+              <option value="bPositivo">B+</option>
+              <option value="abNegativo">AB-</option>
+              <option value="abPositivo">AB+</option>
+            </select>
+            <br>
+  
+          </fieldset>
+          <br>
+  
+          <fieldset>
+            <legend>Alergias <button type="button" class="btn-submit" id="btnOtraAlergia">+</button></legend>
+            
+            <div id="alergias"></div>
+          </fieldset>
+  
+          <br>
+  
+          <fieldset>
+            <legend>Padecimientos <button type="button" class="btn-submit" id="btnOtroPadecimiento">+</button></legend>
+  
+            <div id="padecimientos"></div>
+          </fieldset>
+  
+          <br>
+  
+          <fieldset>
+            <legend>Medicamentos <button style="display: inline;" type="button" class="btn-submit" id="btnOtroMedicamento">+</button></legend>
+  
+            <div id="medicamentos"></div>
+          </fieldset>
+  
+          <br>
+  
+          <fieldset>
+            <legend>Seguros Médicos <button type="button" class="btn-submit" id="btnOtroSeguro">+</button></legend>
+  
+            <div id="seguros"></div>
+          </fieldset>
+          <br>
+  
+          <br>
+          <div id="input-btns">
+            <button id="submit" class="btn-submit" type="submit">Crear Expediente</button>
+            <input id="erase" class="btn-submit" type="reset" value="Borrar datos">
+          </div>
+        </form>
+      </div>
 
-
-        </fieldset>
-        <br>
-
-        <br>
+      <div id="result">
+        <h3>Expediente creado exitosamente</h3>
         <div id="input-btns">
-          <input class="btn-submit" type="submit" value="Crear Expediente">
-          <input class="btn-submit" type="reset" value="Borrar datos">
+          <button id="otroExpediente" class="btn-submit">Crear otro Expediente</button>
+          <a href="crearEntrada.html"><button class="btn-submit">Ir a Crear Entrada</button></a>
         </div>
-      </form>
+      </div>
 
     </div>
 

@@ -39,16 +39,47 @@
         <main>  
             <div id="wrapper-2">
                 <h2 style="text-align: center; padding-bottom: 1%;">Buscar un paciente (introduce su CURP)</h2>
-                <form class="searchbar" action="vistaExpediente.html">
-                    <input type="text" placeholder="Buscar.." name="buscar" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                <form class="searchbar">
+                    <input type="text" placeholder="Buscar.." name="curp" id="curp" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]">
+                    <button type="button" id="searchBtn"><i class="fa fa-search"></i></button>
                 </form>
+                <!-- <div class="form-group">
+                    <button id="searchBtn" class="btnM">Iniciar Sesión</button>
+                </div> -->
             </div>
         </main>
         <footer>
 
         </footer>
         <script>
+            $(document).ready(function(){
+
+                $("#searchBtn").click(function(){
+
+                    var curp = $("#curp").val();
+                    var ruta="curp="+curp;
+
+                    $.ajax({
+                        url: 'back/loadCURP.php',
+                        type: 'GET',
+                        data: ruta,
+                    })
+                    .done(function(res){
+                        if (res == "fail")
+                            console.log("Error in query (back/getPatientInfo.php)");
+                        else {
+                            if (res == "null"){
+                                alert("CURP no encontrada!");
+                            } else {
+                                window.location.href = "vistaExpediente.html";
+                            }
+                        }
+                    })
+                    .fail(function(){
+                        console.log("Error in ajax function (searchBar.html)");
+                    });
+                });
+            });
         </script>
     </body>
 </html>
