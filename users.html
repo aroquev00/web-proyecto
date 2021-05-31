@@ -24,7 +24,7 @@
     <body>
         <header>
         </header>
-        <nav class="navbar navbar-expand-sm     ">
+        <nav class="navbar navbar-expand-sm">
 
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
@@ -40,14 +40,44 @@
         </nav>
         
         <main>
-            <div class="px-5 mb-5">
-                <h2 style="text-align: center; padding-bottom: 1%;">Buscar un Doctor (introduce su Cédula)</h2>
-                <form class="searchbar" action="vistaExpediente.html">
-                    <input type="text" placeholder="Buscar.." name="buscar" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+            <div id="wrapper-2">
+                <h2 style="text-align: center; padding-bottom: 1%;">Buscar un doctor (introduce su Cedula)</h2>
+                <form class="searchbar">
+                    <input type="text" placeholder="Buscar.." name="cedula" id="cedula" pattern="([0-9]{7})|([0-9]{8})">
+                    <button type="button" id="searchBtn"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <button type="button" class="btn btn-primary btn-lg">Agregar Doctor</button>
         </main>
+        <script>
+            $(document).ready(function(){
+
+                $("#searchBtn").click(function() {
+
+                    var cedula = $("#cedula").val();
+                    var ruta = "cedula=" + cedula;
+                    console.log(cedula);
+                    $.ajax({
+                        url: 'back/loadCedula.php',
+                        type: 'GET',
+                        data: ruta,
+                    })
+                        .done(function(res){
+                            if (res == "fail")
+                                console.log("Error in query (back/getDocInfo.php)");
+                            else {
+                                if (res == "null"){
+                                    alert("Cedula no encontrada!");
+                                } else {
+                                    window.location.href = "vistaExpedienteDoctor.html";
+                                }
+                            }
+                        })
+                        .fail(function(){
+                            console.log("Error in ajax function (users.html)");
+                        });
+                });
+            });
+        </script>
     </body>
 </html>    
