@@ -28,10 +28,11 @@
 					$registrado = true;
 				}
 			}
-            if($registrado){
-				echo "success";
-			}else{
+            if($registrado == false){
 				echo "fail";
+			}else{
+				echo "success";
+                $_SESSION["usuario"] = $usuarioInput;
 			}
 
         }
@@ -51,14 +52,14 @@
 					$registrado = true;
 				}
 			}
-            if($registrado){
-				echo "success";
-			}else{
+            if($registrado == false){
 				echo "fail";
+			}else{
+                echo "success";
+                $_SESSION["paciente"] = $usuarioInput;
 			}
 
         }
 
     }
-    $_SESSION["usuario"] = $usuarioInput;
 ?>
