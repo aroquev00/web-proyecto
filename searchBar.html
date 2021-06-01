@@ -40,7 +40,7 @@
             <div id="wrapper-2">
                 <h2 style="text-align: center; padding-bottom: 1%;">Buscar un paciente (introduce su CURP)</h2>
                 <form class="searchbar">
-                    <input type="text" placeholder="Buscar.." name="curp" id="curp" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]">
+                    <input type="text" placeholder="Buscar.." name="curp" id="curp">
                     <button type="button" id="searchBtn"><i class="fa fa-search"></i></button>
                 </form>
                 <!-- <div class="form-group">
@@ -66,13 +66,9 @@
                     })
                     .done(function(res){
                         if (res == "fail")
-                            console.log("Error in query (back/getPatientInfo.php)");
+                            alert("CURP no encontrada!");
                         else {
-                            if (res == "null"){
-                                alert("CURP no encontrada!");
-                            } else {
-                                window.location.href = "vistaExpediente.html";
-                            }
+                            window.location.href = "vistaExpediente.html";   
                         }
                     })
                     .fail(function(){

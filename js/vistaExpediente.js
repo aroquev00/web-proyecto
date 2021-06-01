@@ -1,20 +1,23 @@
 
-            //llamada Ajax para traer info básica de paciente y consultas
+            
 $(document).ready(function(){
     
+
+
+    //Llamada de ajax para traer información básica 
     $.ajax({
-        url: 'back/getConsultas.php',
-        type: 'GET',
+        url: 'back/getInfoBasica.php',
+        type: 'POST',
         dataType: 'JSON',
     })
     .done(function(res){
+        console.log('RES: '+res);
         if (res == "fail")
             console.log("Error in query (back/getPatientInfo.php)");
         else {
             var patientInfo = res;
             var cantEntradas = patientInfo.length;
-
-            //Llenar info básica
+            
             document.getElementById("nombre").innerHTML = patientInfo[0]["nombre"];
             document.getElementById("sexo").innerHTML = patientInfo[0]["sexo"];
             document.getElementById("dob").innerHTML = patientInfo[0]["dob"];
@@ -28,8 +31,42 @@ $(document).ready(function(){
             document.getElementById("nombreMama").innerHTML = patientInfo[0]["madre"];
             document.getElementById("compañia").innerHTML = patientInfo[0]["compañia"];
             document.getElementById("polizaNum").innerHTML = patientInfo[0]["polizaNum"];
-            document.getElementById("fechaVen").innerHTML = patientInfo[0]["fechaVen"];
+            document.getElementById("fechaVen").innerHTML = patientInfo[0]["fechaVen"];  
+       
+        }
+    })
+    .fail(function(e) { 
+        console.log(e); 
+    })
 
+
+    //Llamada de ajax para traer información de consultas
+    $.ajax({
+        url: 'back/getConsultas.php',
+        type: 'GET',
+        dataType: 'JSON',
+    })
+    .done(function(res){
+        if (res == "fail")
+            console.log("Error in query (back/getPatientInfo.php)");
+        else {
+            var patientInfo = res;
+            var cantEntradas = patientInfo.length;
+            
+             /*  document.getElementById("nombre").innerHTML = patientInfo[0]["nombre"];
+            document.getElementById("sexo").innerHTML = patientInfo[0]["sexo"];
+            document.getElementById("dob").innerHTML = patientInfo[0]["dob"];
+            document.getElementById("curp").innerHTML = patientInfo[0]["curp"];
+            document.getElementById("telefono").innerHTML = patientInfo[0]["telefono"];
+            document.getElementById("correo").innerHTML = patientInfo[0]["correo"];
+            document.getElementById("domicilio").innerHTML = patientInfo[0]["domicilio"];
+            document.getElementById("nss").innerHTML = patientInfo[0]["nss"];
+            document.getElementById("sangre").innerHTML = patientInfo[0]["sangre"];
+            document.getElementById("nombrePapa").innerHTML = patientInfo[0]["padre"];
+            document.getElementById("nombreMama").innerHTML = patientInfo[0]["madre"];
+            document.getElementById("compañia").innerHTML = patientInfo[0]["compañia"];
+            document.getElementById("polizaNum").innerHTML = patientInfo[0]["polizaNum"];
+            document.getElementById("fechaVen").innerHTML = patientInfo[0]["fechaVen"];  */
 
             // Despliegue de las entradas de tipo consulta
             for(var i=0;i<cantEntradas;i++){
@@ -254,7 +291,7 @@ $(document).ready(function(){
                 ruta = "fechaIn="+patientInfo[i]["fechaIn"];
                 
                 $.ajax({
-                    url: '../back/getDrsInter.php',
+                    url: 'back/getDrsInter.php',
                     type: 'POST',
                     data: ruta,
                     dataType: 'JSON',
@@ -263,7 +300,7 @@ $(document).ready(function(){
                 .done(function(res){
                     var drsInter = res;
                     for(var j=0;j<drsInter.length;j++){
-                        console.log(i + " " + drsInter[j]["nombre"]);
+                        //console.log(i + " " + drsInter[j]["nombre"]);
                         document.getElementById("drInter"+i).innerHTML = document.getElementById("drInter"+i).innerHTML + " " + drsInter[j]["nombre"] + ","; 
                     } 
                     

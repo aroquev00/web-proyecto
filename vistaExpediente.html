@@ -25,7 +25,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/vistaExpediente.js"></script>
+        
 
     </head>
     <body>
@@ -161,23 +161,29 @@
                     </div>
 
                 </div>
-                <div class="tab-pane container" id="consultas" >
-                    
-                </div>
-                <div class="tab-pane container" id="hospitalizaciones" >
-                    
-                </div>
-    
-            <form class="entrada-button text-center" action="./crearEntrada.html" method="GET">
-                <input type="submit" name="submit" value="Agregar entrada" class="btnM" style="height: 40px; width: 150px;">
-            </form>
+            <div class="tab-pane container" id="consultas" >
+                
+            </div>
+            <div class="tab-pane container" id="hospitalizaciones" >
+                
+            </div>
+
+            <div class="text-center mt-5">
+               <!--  <form  style="display: inline-block;" class="entrada-button" action="./crearEntrada.html" method="GET">
+                    <input type="submit" name="submit" value="Agregar entrada" class="btnM" style="height: 40px; width: 150px;">
+                </form> -->
+                <a href="./crearEntrada.html" style="height: 40px; width: 150px;" class="btnM">Agregar Entrada</a>
+
+            </div>
+            
             
         </main>
         <footer>
             
         </footer>
         <script>
-
+            var url = "js/vistaExpediente.js";
+            $.getScript(url);
         </script>
     </body>
 </html>
