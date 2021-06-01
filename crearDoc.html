@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>MediDocs</title>
+    <meta charset="utf-8">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--Icons-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <!--Boostrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--CSS-->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+<header>
+    <!-- <h1>Creación de Expediente Médico</h1> -->
+    <!-- <hr> -->
+</header>
+<nav class="navbar navbar-expand-sm">
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a href="adminView.html"><i class="fas fa-home"></i> Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<main>
+    <h2> <i class="fas fa-clipboard"></i> Creación de Perfil de Doctor</i> </h2>
+
+    <div id="wrapper">
+        <div id="form">
+            <form method="POST" class="form">
+                <fieldset>
+                    <legend>Datos personales</legend>
+
+                    <label for="primerNombre">Nombre</label>
+                    <input type="text" id="primerNombre" name="primerNombre" placeholder="Juan" required autofocus
+                           autocomplete="on">
+                    <br>
+
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Pérez" required autocomplete="on">
+                    <br>
+
+                    <label for="sexo">Sexo</label>
+                    <select name="sexo" id="sexo">
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                    </select>
+                    <br>
+
+                    <label for="dob">Fecha de nacimiento</label>
+                    <input type="date" id="dob" name="dob" required>
+                    <br>
+
+                    <label for="curp">CURP</label>
+                    <input type="text" id="curp" name="curp" pattern="[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9]" placeholder="HEGG560427MVZRRL04" required autocomplete="on">
+                    <br>
+
+                    <label for="cedula">Cedula</label>
+                    <input type="text" id="cedula" name="cedula" pattern="([0-9]{7})|([0-9]{8})" placeholder="12345678" required autocomplete="on">
+                    <br>
+
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+                    <br>
+
+                </fieldset>
+
+                <br>
+                <div id="input-btns">
+                    <button id="submit" class="btn-submit" type="submit">Crear Expediente</button>
+                    <input id="erase" class="btn-submit" type="reset" value="Borrar datos">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="result">
+        <h3>Expediente creado exitosamente</h3>
+        <div id="input-btns">
+            <button id="otroExpediente" class="btn-submit">Crear otro Perfil</button>
+            <a href="users.html"><button class="btn-submit">Regresar a busqueda</button></a>
+        </div>
+    </div>
+
+    <hr>
+
+</main>
+
+<footer>
+
+</footer>
+
+<!--jQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/crearDoc.js"></script>
+</body>
+
+</html>

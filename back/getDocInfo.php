@@ -5,6 +5,7 @@ session_start();
 include('db/conexionDB.php');
 
 $user = $_SESSION['usuario'];
+
 $return_arr = array();
 $query = "SELECT * FROM Personas p JOIN Medicos Me ON p.curp = Me.personaID WHERE Me.cedula = '$user'";
 

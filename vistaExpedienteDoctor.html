@@ -67,7 +67,9 @@
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-primary btn-lg">Eliminar doctor</button>
+    <form action="back/deleteDoc.php" method="get">
+        <input type="submit" value="Eliminar Doctor">
+    </form>
 </main>
 <footer>
 
@@ -78,20 +80,21 @@
         type: 'GET',
         dataType: 'JSON',
     })
-        .done(function(res){
-            if (res == "fail")
-                console.log("Error in query (back/getDocInfo.php)");
-            else {
-                var patientInfo = res;
-                document.getElementById("nombre").innerHTML = patientInfo[0]["nombre"];
-                document.getElementById("sexo").innerHTML = patientInfo[0]["sexo"];
-                document.getElementById("dob").innerHTML = patientInfo[0]["dob"];
-                document.getElementById("curp").innerHTML = patientInfo[0]["curp"];
-            }
-        })
-        .fail(function(){
-            console.log("Error in ajax function (vistaExpedienteDoctor.html)");
-        });
+    .done(function(res){
+        if (res == "fail")
+            console.log("Error in query (back/getDocInfo.php)");
+        else {
+            var patientInfo = res;
+            document.getElementById("nombre").innerHTML = patientInfo[0]["nombre"];
+            document.getElementById("sexo").innerHTML = patientInfo[0]["sexo"];
+            document.getElementById("dob").innerHTML = patientInfo[0]["dob"];
+            document.getElementById("curp").innerHTML = patientInfo[0]["curp"];
+        }
+    })
+    .fail(function(){
+        console.log("Error in ajax function (vistaExpedienteDoctor.html)");
+    });
+</script>
 </script>
 </body>
 </html>
