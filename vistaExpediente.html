@@ -25,6 +25,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="css/main.css">
+        <script src="js/vistaExpediente.js"></script>
 
     </head>
     <body>
@@ -39,7 +40,7 @@
                 <a href="dashboardMedico.html"><i class="fas fa-home"></i> Inicio</a>
               </li>
               <li class="nav-item">
-                <a><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                <a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
               </li>
             
             </ul>
@@ -47,288 +48,136 @@
         </nav>
         
         <main>  
-            <div id="basicInfo">
-                <h1>Información</h1>
-                <div id="infoPersonal">
-                    <h4 class="subtitulo">Información Personal</h4>
-                    <div class="flex-container" >
-                        <div class="flex-item-info flex-4" >
-                            <b>Nombre: </b><span id="nombre"> </span>
-                        </div>
-                        <div class="flex-item-info flex-4" >
-                            <b>Sexo: </b><span id="sexo"> </span>
-                        </div>
-                        <div class="flex-item-info flex-4">
-                            <b>Fecha de Nacimiento: </b><span id="dob">  </span>
-                        </div>
-                        <div class="flex-item-info flex-4">
-                            <b>CURP: </b><span id="curp"> </span>
+            
+            <br>
+            <ul class="nav nav-tabs  justify-content-center" style="border: none;">
+                <li class="nav-item">
+                  <a class="nav-link active mx-2" data-toggle="tab" href="#basicInfo">Información Básica</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  mx-2" data-toggle="tab" href="#consultas">Consultas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link mx-2" data-toggle="tab" href="#hospitalizaciones">Hospitalizaciones</a>
+                </li>
+              </ul>
+              
+              <!-- Tab panes -->
+              <div class="tab-content" style="margin: 0 15%;">
+                <br>
+                <div class="tab-pane container active" id="basicInfo">
+                    <h1>Información</h1>
+                    <div id="infoPersonal">
+                        <h4 class="subtitulo">Información Personal</h4>
+                        <div class="flex-container" >
+                            <div class="flex-item-info flex-4" >
+                                <b>Nombre: </b><span id="nombre"> </span>
+                            </div>
+                            <div class="flex-item-info flex-4" >
+                                <b>Sexo: </b><span id="sexo"> </span>
+                            </div>
+                            <div class="flex-item-info flex-4">
+                                <b>Fecha de Nacimiento: </b><span id="dob">  </span>
+                            </div>
+                            <div class="flex-item-info flex-4">
+                                <b>CURP: </b><span id="curp"> </span>
+                            </div>
+                            <br>
                         </div>
                         <br>
+                        <div class="flex-container">
+                            <div class="flex-item-info flex-4">
+                                <b>Teléfono: </b><span id="telefono"> </span>
+                            </div><div class="flex-item-info flex-4">
+                                <b>Email: </b><span id="correo"> </span>
+                            </div><div class="flex-item-info flex-4">
+                                <b>Domicilio: </b><span id="domicilio"> </span>
+                            </div>
+                            <div class="flex-item-info flex-4">
+                                <b>NSS: </b><span id="nss"> </span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="flex-container">
+                            <div class="flex-item-info flex-4">
+                                <b>Tipo de Sangre: </b><span id="sangre"></span>
+                            </div><div class="flex-item-info flex-4">
+                                <b>Alergias: </b><span id="alergias"> </span>
+                            </div><div class="flex-item-info flex-4">
+                                <b>Padecimientos: </b><span id="padecimientos"> </span>
+                            </div>
+                            <div class="flex-item-info flex-4">
+                                <b>Medicamentos: </b><span id="meds"></span>
+                            </div>
+                        </div>
+                            
                     </div>
-                    <br>
-                    <div class="flex-container">
-                        <div class="flex-item-info flex-4">
-                            <b>Teléfono: </b><span id="telefono"> </span>
-                        </div><div class="flex-item-info flex-4">
-                            <b>Email: </b><span id="correo"> </span>
-                        </div><div class="flex-item-info flex-4">
-                            <b>Domicilio: </b><span id="domicilio"> </span>
+                    <hr>
+                    <div id="infoContacto">
+                        <div id="infoMadre">
+                            <h4 class="subtitulo">Información de la Madre</h4>
+                            <div class="flex-container">
+                                <div class="flex-item-info flex-3">
+                                    <b>Nombre: </b><span id="nombreMama"> </span>
+                                </div>
+                    
+                                <div class="flex-item-info flex-3">
+                                    <b>Fecha de Nacimiento: </b><span id="dobMama"> </span>
+                                </div>
+                                <div class="flex-item-info flex-3">
+                                    <b>CURP: </b><span id="curpMama"> </span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex-item-info flex-4">
-                            <b>NSS: </b><span id="nss"> </span>
+                        <div id="infoPadre">
+                            <h4 class="subtitulo">Información del Padre</h4>
+                            <div class="flex-container">
+                                <div class="flex-item-info flex-3">
+                                    <b>Nombre: </b><span id="nombrePapa"> </span>
+                                </div>
+                                <div class="flex-item-info flex-3">
+                                    <b>Fecha de Nacimiento: </b><span id="dobPapa"> </span>
+                                </div>
+                                <div class="flex-item-info flex-3">
+                                    <b>CURP: </b><span id="curpPapa"> </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <br>
-                    <div class="flex-container">
-                        <div class="flex-item-info flex-4">
-                            <b>Tipo de Sangre: </b><span id="sangre"></span>
-                        </div><div class="flex-item-info flex-4">
-                            <b>Alergias: </b><span id="alergias"> </span>
-                        </div><div class="flex-item-info flex-4">
-                            <b>Padecimientos: </b><span id="padecimientos"> </span>
-                        </div>
-                        <div class="flex-item-info flex-4">
-                            <b>Medicamentos: </b><span id="meds"></span>
-                        </div>
-                    </div>
-                        
-                </div>
-                <hr>
-                <div id="infoContacto">
-                    <div id="infoMadre">
-                        <h4 class="subtitulo">Información de la Madre</h4>
+                    <hr>
+                    <div id="infoSeguro">
+                        <h4 class="subtitulo">Información del Seguro</h4>
                         <div class="flex-container">
                             <div class="flex-item-info flex-3">
-                                <b>Nombre: </b><span id="nombreMama"> </span>
-                            </div>
-                
-                            <div class="flex-item-info flex-3">
-                                <b>Fecha de Nacimiento: </b><span id="dobMama"> </span>
+                                <b>Aseguradora: </b><span id="compañia"> </span>
                             </div>
                             <div class="flex-item-info flex-3">
-                                <b>CURP: </b><span id="curpMama"> </span>
+                                <b>Número de Póliza: </b><span id="polizaNum"> </span>
+                            </div>
+                            <div class="flex-item-info flex-3">
+                                <b>Fecha de Vencimiento: </b><span id="fechaVen"> </span>
                             </div>
                         </div>
                     </div>
-                    <div id="infoPadre">
-                        <h4 class="subtitulo">Información del Padre</h4>
-                        <div class="flex-container">
-                            <div class="flex-item-info flex-3">
-                                <b>Nombre: </b><span id="nombrePapa"> </span>
-                            </div>
-                            <div class="flex-item-info flex-3">
-                                <b>Fecha de Nacimiento: </b><span id="dobPapa"> </span>
-                            </div>
-                            <div class="flex-item-info flex-3">
-                                <b>CURP: </b><span id="curpPapa"> </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div id="infoSeguro">
-                    <h4 class="subtitulo">Información del Seguro</h4>
-                    <div class="flex-container">
-                        <div class="flex-item-info flex-3">
-                            <b>Aseguradora: </b><span id="compañia"> </span>
-                        </div>
-                        <div class="flex-item-info flex-3">
-                            <b>Número de Póliza: </b><span id="polizaNum"> </span>
-                        </div>
-                        <div class="flex-item-info flex-3">
-                            <b>Fecha de Vencimiento: </b><span id="fechaVen"> </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div id="entradas">
-
-            </div>
-
-            
-            <!-- Ejemplo de Hospitalización -->
-            <!-- <div class="entrada hospitalizacion">
-                <h1>Entrada #2</h1>
-                <div class="flex-container">
-                    <div class="flex-item-info flex-3">
-                        <b>Tipo: </b><span class="tipoEntrada">Hospitalización </span>
-                    </div>
-                    <div class="flex-item-info flex-3">
-                        <b>Fecha de Entrada: </b><span class="fechaIn">06/11/2020 </span>
-                    </div>
-                    <div class="flex-item-info flex-3" >
-                        <b>Fecha de Salida: </b><span class="fechaOut">12/11/2020 </span>
-                    </div>
                 </div>
-                <div class="flex-container">
-                    <div class="flex-item-info flex-3">
-                        <b>Hospital: </b><span class="nombreHospital">Sán José </span>
-                    </div>
-                    <div class="flex-item-info flex-3">
-                        <b>Doctor Tratante: </b><span class="docTratante">Ricardo González</span>
-                    </div>
-                    <div class="flex-item-info flex-3" >
-                        <b>Doctor&#40;es&#41; Interconsultante&#40;s&#41;: </b><span class="docsInter"><br>Miguel Arroyo <br> Claudia Posada</span>
-                    </div>
+                <div class="tab-pane container" id="consultas" >
+                    
                 </div>
-                <div class="comentarios">
-                    <p><b>Comentarios:</b> <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque maiores esse cupiditate perspiciatis itaque ducimus praesentium porro molestias quas molestiae commodi, voluptatum totam dolores et dolore sed dolorum cumque. Laborum.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quas. Ullam, modi tenetur ab iste dicta consequatur. Quia distinctio, accusamus officia facilis libero modi obcaecati blanditiis tempora perferendis nesciunt nostrum.</p>
+                <div class="tab-pane container" id="hospitalizaciones" >
+                    
                 </div>
-            </div> -->
-            
-            <form class="entrada-button" action="./crearEntrada.html" method="GET">
+    
+            <form class="entrada-button text-center" action="./crearEntrada.html" method="GET">
                 <input type="submit" name="submit" value="Agregar entrada" class="btnM" style="height: 40px; width: 150px;">
             </form>
             
         </main>
         <footer>
-
+            
         </footer>
         <script>
-            $.ajax({
-                url: 'back/getPatientInfo.php',
-                type: 'GET',
-                dataType: 'JSON',
-            })
-            .done(function(res){
-                if (res == "fail")
-                    console.log("Error in query (back/getPatientInfo.php)");
-                else {
-                    var patientInfo = res;
-                    var cantEntradas = patientInfo.length;
-                    //Llenar info básica
-                    document.getElementById("nombre").innerHTML = patientInfo[0]["nombre"];
-                    document.getElementById("sexo").innerHTML = patientInfo[0]["sexo"];
-                    document.getElementById("dob").innerHTML = patientInfo[0]["dob"];
-                    document.getElementById("curp").innerHTML = patientInfo[0]["curp"];
-                    document.getElementById("telefono").innerHTML = patientInfo[0]["telefono"];
-                    document.getElementById("correo").innerHTML = patientInfo[0]["correo"];
-                    document.getElementById("domicilio").innerHTML = patientInfo[0]["domicilio"];
-                    document.getElementById("nss").innerHTML = patientInfo[0]["nss"];
-                    document.getElementById("sangre").innerHTML = patientInfo[0]["sangre"];
-                    document.getElementById("nombrePapa").innerHTML = patientInfo[0]["padre"];
-                    document.getElementById("nombreMama").innerHTML = patientInfo[0]["madre"];
-                    document.getElementById("compañia").innerHTML = patientInfo[0]["compañia"];
-                    document.getElementById("polizaNum").innerHTML = patientInfo[0]["polizaNum"];
-                    document.getElementById("fechaVen").innerHTML = patientInfo[0]["fechaVen"];
 
-
-                    for(var i=0;i<cantEntradas;i++){
-
-                        console.log(cantEntradas);
-                        var j = i+1;
-                        const newDiv = document.createElement("div");
-                        newDiv.setAttribute("class", "entrada consulta");
-                        
-                        const newHeader = document.createElement("h1");
-                        newHeader.innerText = "Entrada #"+j;
-
-                        
-                        const newB = document.createElement("b");
-                        newB.innerText = "Tipo:"
-                        
-                        const newS = document.createElement("span");
-                        newS.innerText = " Consulta";
-                        newS.setAttribute("class","tipoEntrada");
-                        
-                        const newBr = document.createElement("br");
-
-                        const newDivFlex = document.createElement("div");
-                        newDivFlex.setAttribute("class","flex-container");
-                        
-                        //Creación de fecha
-                        const newDivFlexFecha = document.createElement("div");
-                        newDivFlexFecha.setAttribute("class","flex-item-info flex-4");
-                        const newBFecha = document.createElement("b");
-                        newBFecha.innerText = "Fecha: ";
-                        const newSFecha = document.createElement("span");
-                        newSFecha.setAttribute("id", "fecha"+i);
-                        newDivFlexFecha.appendChild(newBFecha);
-                        newDivFlexFecha.appendChild(newSFecha);
-                        newDivFlex.appendChild(newDivFlexFecha);
-
-                        
-                        //Creación de peso
-                        const newDivFlexPeso = document.createElement("div");
-                        newDivFlexPeso.setAttribute("class","flex-item-info flex-4");
-                        const newBPeso = document.createElement("b");
-                        newBPeso.innerText = "Peso: ";
-                        const newSPeso = document.createElement("span");
-                        newSPeso.setAttribute("id", "peso"+i);
-                        newDivFlexPeso.appendChild(newBPeso);
-                        newDivFlexPeso.appendChild(newSPeso);
-                        newDivFlex.appendChild(newDivFlexPeso);
-
-                        //Creación de altura
-                        const newDivFlexAlt = document.createElement("div");
-                        newDivFlexAlt.setAttribute("class","flex-item-info flex-4");
-                        const newBAlt = document.createElement("b");
-                        newBAlt.innerText = "Altura: ";
-                        const newSAlt = document.createElement("span");
-                        newSAlt.setAttribute("id", "altura"+i);
-                        newDivFlexAlt.appendChild(newBAlt);
-                        newDivFlexAlt.appendChild(newSAlt);
-                        newDivFlex.appendChild(newDivFlexAlt);
-
-                        //Creación de presión
-                        const newDivFlexPresion = document.createElement("div");
-                        newDivFlexPresion.setAttribute("class","flex-item-info flex-4");
-                        const newBPresion = document.createElement("b");
-                        newBPresion.innerText = "Presión: ";
-                        const newSPresion = document.createElement("span");
-                        newSPresion.setAttribute("id", "presion"+i);
-                        newDivFlexPresion.appendChild(newBPresion);
-                        newDivFlexPresion.appendChild(newSPresion);
-                        newDivFlex.appendChild(newDivFlexPresion);
-
-                        //Creación de razón
-                        const newDivFlexRazon = document.createElement("div");
-                        const newBRazon = document.createElement("b");
-                        newBRazon.innerText = "Razon: ";
-                        const newSRazon = document.createElement("span");
-                        newSRazon.setAttribute("id", "razon"+i);
-                        newDivFlexRazon.appendChild(newBRazon);
-                        newDivFlexRazon.appendChild(newSRazon);
-                        
-
-                        //Creación de comentarios
-                        const newDivFlexComen = document.createElement("div");
-                        const newBComen = document.createElement("b");
-                        newBComen.innerText = "Comentarios: \n";
-                        const newSComen = document.createElement("span");
-                        newSComen.setAttribute("id", "comentario"+i);
-                        newDivFlexComen.appendChild(newBComen);
-                        newDivFlexComen.appendChild(newBr);
-                        newDivFlexComen.appendChild(newSComen);
-                        
-                        
-                        newDiv.appendChild(newHeader);
-                        newDiv.appendChild(newB);
-                        newDiv.appendChild(newS);
-                        newDiv.appendChild(newBr);
-                        newDiv.appendChild(newDivFlex);
-                        newDiv.appendChild(newDivFlexRazon);
-
-                        newDiv.appendChild(newDivFlexComen);
-                        document.getElementById("entradas").appendChild(newDiv); 
-
-                        document.getElementById("razon"+i).innerHTML = patientInfo[i]["razon"];
-                        document.getElementById("altura"+i).innerHTML = patientInfo[i]["altura"];
-                        document.getElementById("presion"+i).innerHTML = patientInfo[i]["presion"];
-                        document.getElementById("peso"+i).innerHTML = patientInfo[i]["peso"];
-                        document.getElementById("comentario"+i).innerHTML = patientInfo[i]["comentario"];
-                        document.getElementById("fecha"+i).innerHTML = patientInfo[i]["fecha"];
-
-
-                    }
-               
-                }
-            })
-            .fail(function(){
-                console.log("Error in ajax function (vistaExpediente.html)");
-            });
         </script>
     </body>
 </html>

@@ -176,7 +176,7 @@ legend{
 #basicInfo {
     background:linear-gradient(to left bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
     padding: 2% ;
-    margin: 0 15%;
+    margin: 2% 0%;
     border-radius: 10px;
     height: fit-content;
     text-align: left;
@@ -212,9 +212,9 @@ legend{
 }
 
 .entrada {
-    
+    width: 100%;
     padding: 2% ;
-    margin: 3% 15%;
+    margin: 2% 0%;
     border-radius: 10px;
     height: fit-content;
     text-align: left;
@@ -222,6 +222,7 @@ legend{
 }
 
 .consulta{
+    width: 100%;
     background:linear-gradient(to left bottom,rgba(255,255,255,0.6),rgba(38,168,146,0.3));
 }
 
