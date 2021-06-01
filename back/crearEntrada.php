@@ -58,7 +58,7 @@
     
                     if(isset($_POST['presion']) && $_POST['presion'] !== ""){
                         $presion = $_POST['presion'];
-                        $query = "INSERT INTO ConsultasMedicoPaciente VALUES ('$medico', '$nss', $altura, $peso, $presion, '$razon', '$comentarios', '$fecha')";
+                        $query = "INSERT INTO ConsultasMedicoPaciente VALUES ('$medico', '$nss', $altura, $peso, '$presion', '$razon', '$comentarios', '$fecha')";
                     }else{
                         $query = "INSERT INTO ConsultasMedicoPaciente VALUES ('$medico', '$nss', $altura, $peso, null, '$razon', '$comentarios', '$fecha')";                    }
     
@@ -95,7 +95,6 @@
                             
                         if(mysqli_num_rows($resultado) == 0){
                             $query = "INSERT INTO Internados VALUES ('$hospital', '$nss', '$fechain', '$fechaout', '$drTratante', null,'$comentariosH')";
-                        
                             $resultado = hacerQuery($query);
                             if($resultado == false){
                                 $exito = false;
