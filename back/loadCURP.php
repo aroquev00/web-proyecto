@@ -7,7 +7,7 @@
     $query = "SELECT personaID FROM Pacientes WHERE personaID = '$usuarioInput';";
 
     $res = hacerQuery($query);
-    if($res == false){
+    if(mysqli_num_rows($res) == 0){
         echo "fail";
         die(mysqli_error);
     } else {
@@ -20,7 +20,7 @@
     if ($valid == "null") {
         echo "null";
     } else {
-        $_SESSION["usuario"] = $usuarioInput;
+        $_SESSION["paciente"] = $usuarioInput;
     }
 
 ?>

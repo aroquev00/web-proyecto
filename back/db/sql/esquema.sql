@@ -70,32 +70,29 @@ CREATE TABLE Alergias(
     FOREIGN KEY(pacienteID) REFERENCES Pacientes(nss)
 );
 
-CREATE TABLE Hospitales(
-	id varchar(10),
-    nombre varchar(100),
-    PRIMARY KEY(id)
-);
+
 
 CREATE TABLE Internados(
-	hospitalID varchar(10),
+	hospital varchar(100),
     pacienteID char(11),
     fechaIn    date,
     fechaOut   date,
     razon      tinytext,
     drTratante varchar(100),
+    drTratanteID varchar(8),
     comentarios text(1000),
-  	PRIMARY KEY(hospitalID, pacienteID, fechaIn),
-    FOREIGN KEY(hospitalID) REFERENCES Hospitales(id),
-    FOREIGN KEY(pacienteID) REFERENCES Pacientes(nss)
+  	PRIMARY KEY(pacienteID, fechaIn),
+    FOREIGN KEY(pacienteID) REFERENCES Pacientes(nss),
+    FOREIGN KEY(drTratanteID) REFERENCES Medicos(cedula)
 );
 
 CREATE TABLE DocInterconsultantes(
-	hospitalID varchar(10),
+	hospital varchar(100),
     pacienteID char(11),
     fechaIn    date,
     nombre     varchar(100),
-    PRIMARY KEY(hospitalID, pacienteID, fechaIn, nombre),
-    FOREIGN KEY(hospitalID, pacienteID, fechaIn) REFERENCES Internados(id)
+    PRIMARY KEY(pacienteID, fechaIn, nombre),
+    FOREIGN KEY(pacienteID, fechaIn) REFERENCES Internados(pacienteID, fechaIn)
 );
 
 CREATE TABLE Meds(
