@@ -49,46 +49,57 @@
 
                 var usuario = $("#usuario").val();
                 var contra = $("#contraseña").val();
-                
-                if(usuario.length == 7 || usuario.length == 8){
-                    var tipo = "Dr";
-                }else if(usuario.length == 18){
-                    var tipo = "Paciente";
+
+                if(usuario == "admin" && contra == "root"){
+                    window.location.href = "adminView.html";
+                }else{
+                    var re = new RegExp(/^([A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9][0-9])|([0-9]{7})|([0-9]{8})$/);
+                    if (!re.test(usuario)) {
+                        $('#respuesta').html("Formato erróneo de usuario.");
+                        return;
+                    } 
+                    if(usuario.length == 7 || usuario.length == 8){
+                        var tipo = "Dr";
+                    }else if(usuario.length == 18){
+                        var tipo = "Paciente";
+                    }
+                    
+                    var ruta="Type="+tipo+"&usuario="+usuario+"&contra="+contra;
+                    console.log(ruta);
+                    
+                    $.ajax({
+                        url: 'back/login.php',
+                        type: 'GET',
+                        data: ruta,
+                    })
+                    .done(function(res){
+                       
+    
+                        if(res == "fail" ){
+                            $('#respuesta').html("Datos incorrectos. Vuelva a intentar.");
+                        }
+    
+                        if(res == "success" && tipo == "Dr"){
+                            window.location.href = "dashboardMedico.html";
+                        }
+                        if(res == "success" && tipo == "Paciente"){
+                            $('#respuesta').html("entro");
+                            window.location.href = "vistaPaciente.html";
+                        }
+                        else {
+                            console.log(res);
+                        }
+    
+                    })
+                    .fail(function(){
+                        console.log("error");
+                    })
+                    .always(function(){
+                        console.log("complete");
+                    });
+
                 }
                 
-                var ruta="Type="+tipo+"&usuario="+usuario+"&contra="+contra;
-                console.log(ruta);
-                
-                $.ajax({
-                    url: 'back/login.php',
-                    type: 'GET',
-                    data: ruta,
-                })
-                .done(function(res){
-                   
-
-                    if(res == "fail" ){
-                        $('#respuesta').html("Datos incorrectos. Vuelva a intentar.");
-                    }
-
-                    if(res == "success" && tipo == "Dr"){
-                        window.location.href = "dashboardMedico.html";
-                    }
-                    if(res == "success" && tipo == "Paciente"){
-                        $('#respuesta').html("entro");
-                        window.location.href = "vistaPaciente.html";
-                    }
-                    else {
-                        console.log(res);
-                    }
-
-                })
-                .fail(function(){
-                    console.log("error");
-                })
-                .always(function(){
-                    console.log("complete");
-                });
 
 
             });

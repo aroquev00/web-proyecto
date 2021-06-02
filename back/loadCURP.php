@@ -8,19 +8,12 @@
 
     $res = hacerQuery($query);
     if($res == false){
-        echo "fail";
-        die(mysqli_error);
-    } else {
-        while($row = mysqli_fetch_array($res)){
-            $valid[] = $row;
-        }
-        $valid = json_encode($valid);
+        mysqli_error();
     }
-
-    if ($valid == "null") {
-        echo "null";
+    if(mysqli_num_rows($res) == 0){
+        echo "fail";
     } else {
-        $_SESSION["usuario"] = $usuarioInput;
+        $_SESSION["paciente"] = $usuarioInput;
     }
 
 ?>

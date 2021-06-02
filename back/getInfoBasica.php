@@ -1,11 +1,15 @@
 <?php
-
     session_start();
     include('db/conexionDB.php');
 
-    $user = $_SESSION['usuario'];
+    $user = $_SESSION['paciente'];
+    $query = "SELECT nss FROM Pacientes WHERE PersonaID = '$user'";
+    $resultado = hacerQuery($query);
+    $row = mysqli_fetch_array($resultado);
+    $nss = $row["nss"];
+
     $return_arr = array();
-    $query = "SELECT * FROM Personas p JOIN Pacientes pa ON p.curp = pa.personaID JOIN SegurosMedicos s JOIN ConsultasMedicoPaciente c WHERE personaID = '$user'";
+    $query ="SELECT * FROM Pacientes p JOIN Personas pa on p.personaID = pa.curp JOIN SegurosMedicos WHERE p.nss = '$nss' ";
 
     $res = hacerQuery($query);
     if($res == false){
@@ -27,13 +31,7 @@
                 "dob" => $row['dob'],
                 "compañia" => $row['compania'],
                 "polizaNum" => $row['polizanum'],
-                "fechaVen" => $row['fechaVen'],
-                "razon" => $row['razon'],
-                "altura" => $row['altura'],
-                "peso" => $row['peso'],
-                "presion" => $row['presion'],
-                "comentario" => $row['comentario'],
-                "fecha" => $row['fecha'],
+                "fechaVen" => $row['fechaVen'], 
             );
         }
         echo json_encode($return_arr);

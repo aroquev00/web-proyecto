@@ -1,0 +1,100 @@
+
+<!--
+    ##########################################
+
+    DEBEN  APARECER PRIMERO LAS ENTRADAS MAS RECIENTES
+
+    ##########################################
+-->
+
+<!DOCTYPE html>
+<html>
+<head lang="es">
+    <title>MediDocs</title>
+    <meta charset="UTF-8">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--Icons-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+<header>
+
+</header>
+<nav class="navbar navbar-expand-sm ">
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a href="adminView.html"><i class="fas fa-home"></i> Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<main>
+    <div id="basicInfo">
+        <h1>Información</h1>
+        <div id="infoPersonal">
+            <h4 class="subtitulo">Información Pesonal</h4>
+            <div class="flex-container" >
+                <div class="flex-item-info flex-4" >
+                    <b>Nombre: </b><span id="nombre"> </span>
+                </div>
+                <div class="flex-item-info flex-4" >
+                    <b>Sexo: </b><span id="sexo"> </span>
+                </div>
+                <div class="flex-item-info flex-4">
+                    <b>Fecha de Nacimiento: </b><span id="dob">  </span>
+                </div>
+                <div class="flex-item-info flex-4">
+                    <b>CURP: </b><span id="curp"> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="back/deleteDoc.php" method="get">
+        <input type="submit" value="Eliminar Doctor">
+    </form>
+</main>
+<footer>
+
+</footer>
+<script>
+    $.ajax({
+        url: 'back/getDocInfo.php',
+        type: 'GET',
+        dataType: 'JSON',
+    })
+    .done(function(res){
+        if (res == "fail")
+            console.log("Error in query (back/getDocInfo.php)");
+        else {
+            var patientInfo = res;
+            document.getElementById("nombre").innerHTML = patientInfo[0]["nombre"];
+            document.getElementById("sexo").innerHTML = patientInfo[0]["sexo"];
+            document.getElementById("dob").innerHTML = patientInfo[0]["dob"];
+            document.getElementById("curp").innerHTML = patientInfo[0]["curp"];
+        }
+    })
+    .fail(function(){
+        console.log("Error in ajax function (vistaExpedienteDoctor.html)");
+    });
+</script>
+</script>
+</body>
+</html>

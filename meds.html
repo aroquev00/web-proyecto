@@ -2,73 +2,56 @@
 <html lang="en">
 <head>
     <head lang="es">
-    <title>MediDocs</title>
-    <meta charset="UTF-8">
-    <!--Fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <!--Icons-->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <!--jQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/main.js"></script>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Main css -->
-    <link rel="stylesheet" href="css/main.css">
-    
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    
-</head>
-<body>
-   
-    <nav class="navbar navbar-expand-sm">
+        <title>MediDocs</title>
+        <meta charset="UTF-8">
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <!--Icons-->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+        <!--jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Main css -->
+        <link rel="stylesheet" href="css/main.css">
 
-        <!-- Links -->
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="users.html">Usuarios</a>
-          </li>
-          <li class="nav-item">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="js/meds.js"></script>
+    </head>
+<body>
+
+<nav class="navbar navbar-expand-sm">
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a href="users.html">Doctores</a>
+        </li>
+        <li class="nav-item">
             <a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
-          </li>
-          
-        </ul>
-      
-    </nav>
-    <main style="text-align: center;">
-     
-        <form class="formWrapper">
-            <input type="text" id="med" placeholder="Medicamento">
-            <input type="text" id="pres" placeholder="Presentacion">
-            <input type="button" id="add-row" class="btn-submit" value="Agregar Medicamento" style="margin-top: 25px;">
-        </form>
-        <form action="/action_page.php" id="" class="formWrapper">
-            <input type="file" id="myFile" name="filename">
-            <input type="submit" class="btn-submit">
-        </form>
-    
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Medicamento</th>
-                    <th>Presentacion</th>
-                    <th>Select</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Aspirina</td>
-                    <td>20 tabletas 50mg</td>
-                    <td><input type="checkbox" name="record"></td>
-                </tr>
+        </li>
+
+    </ul>
+
+</nav>
+<main style="text-align: center;">
+    <h1>Medicamentos</h1>
+    <div class="table-wrapper-scroll-y my custom-scrollbar">
+        <table class="table table-bordered table-striped mb-0" style="width: 60%">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Numero de veces recetado</th>
+            </tr>
+            <tbody id = "data">
+
             </tbody>
         </table>
-        <br>
-        <button type="button" id="delete-row" class="btn-submit">Delete Row</button>
-    </main>
-</body> 
+    </div>
+</main>
+</body>
 </html>
