@@ -10,6 +10,7 @@ CREATE TABLE Personas (
 CREATE TABLE Medicos(
     cedula     varchar(8),
     personaID  char(18),
+    contraseña varchar(50),
     PRIMARY KEY(cedula),
     FOREIGN KEY(personaID) REFERENCES Personas(curp)
 );
